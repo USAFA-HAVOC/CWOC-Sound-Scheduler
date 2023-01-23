@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CWOC Audio Scheduler/1.0.0": {
+        "runtime": {
+          "CWOC Audio Scheduler.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CWOC Audio Scheduler/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
