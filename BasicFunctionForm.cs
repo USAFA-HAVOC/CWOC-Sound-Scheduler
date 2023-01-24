@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NAudio.Wave;
 
 namespace CWOC_Audio_Scheduler
 {
@@ -17,8 +18,17 @@ namespace CWOC_Audio_Scheduler
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void play_now_btn_click(object sender, EventArgs e)
         {
+            play_sound(@"sounds/ file_example_MP3_700KB.mp3");
+        }
+
+        private void play_sound(string path)
+        {
+            var audioFile = new Mp3FileReader(path);
+            var outputDevice = new WaveOutEvent();
+            outputDevice.Init(audioFile);
+            outputDevice.Play();
 
         }
     }

@@ -2,7 +2,7 @@ namespace CWOC_Audio_Scheduler
 {
     public partial class FullFunctionForm : Form
     {
-        public Form1()
+        public FullFunctionForm()
         {
             InitializeComponent();
 

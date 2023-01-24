@@ -1,6 +1,6 @@
 ﻿namespace CWOC_Audio_Scheduler
 {
-    partial class Form1
+    partial class FullFunctionForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -781,7 +781,7 @@
             this.label24.TabIndex = 28;
             this.label24.Text = "CWOC Audio Scheduler";
             // 
-            // Form1
+            // FullFunctionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -792,7 +792,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grpBoxToday);
-            this.Name = "EndFordGoal";
+            this.Name = "FullFunctionForm";
             this.Text = "CWOC Audio Scheduler";
             this.grpBoxToday.ResumeLayout(false);
             this.grpBoxToday.PerformLayout();
