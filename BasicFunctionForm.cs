@@ -16,11 +16,35 @@ namespace CWOC_Audio_Scheduler
         public BasicFunctionForm()
         {
             InitializeComponent();
+
+            string path =  Application.StartupPath + @"\sounds"; //This is production, but doesn't work in a debug environment
+            string[] sounds = { };
+
+            path = "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\sounds\\";
+            try
+            {
+                sounds = Directory.GetFiles(path, "*.mp3*", SearchOption.AllDirectories);
+            } catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+            for (int i = 0; i < sounds.Length; i++) 
+            {
+                sounds[i] = Path.GetFileName(sounds[i]);
+            }
+
+            cboSounds.Items.AddRange(sounds);
+            cboSoundsToday.Items.AddRange(sounds);
         }
 
         private void play_now_btn_click(object sender, EventArgs e)
         {
-            play_sound(@"sounds/ file_example_MP3_700KB.mp3");
+            if (cboSounds.SelectedIndex != -1)
+            {
+                play_sound("C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\sounds\\" + cboSounds.SelectedItem);
+                //play_sound(@"\sounds" + (string) cboSounds.SelectedItem); //Dev path. Doesn't work in debug
+            }
         }
 
         private void play_sound(string path)
