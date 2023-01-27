@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\CWOC Audio Scheduler.csproj": {}
+    "C:\\Users\\cadet_admin\\source\\repos\\CWOC-Sound-Scheduler\\CWOC Audio Scheduler.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\CWOC Audio Scheduler.csproj": {
+    "C:\\Users\\cadet_admin\\source\\repos\\CWOC-Sound-Scheduler\\CWOC Audio Scheduler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\CWOC Audio Scheduler.csproj",
+        "projectUniqueName": "C:\\Users\\cadet_admin\\source\\repos\\CWOC-Sound-Scheduler\\CWOC Audio Scheduler.csproj",
         "projectName": "CWOC Audio Scheduler",
-        "projectPath": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\CWOC Audio Scheduler.csproj",
-        "packagesPath": "C:\\Users\\Kayleb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\obj\\",
+        "projectPath": "C:\\Users\\cadet_admin\\source\\repos\\CWOC-Sound-Scheduler\\CWOC Audio Scheduler.csproj",
+        "packagesPath": "C:\\Users\\cadet_admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cadet_admin\\source\\repos\\CWOC-Sound-Scheduler\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Kayleb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cadet_admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

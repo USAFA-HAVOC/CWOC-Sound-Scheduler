@@ -70,9 +70,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 47);
+            this.groupBox1.Location = new System.Drawing.Point(17, 78);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(253, 391);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(361, 652);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Today\'s Schedule";
@@ -80,70 +82,78 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(73, 53);
+            this.label9.Location = new System.Drawing.Point(104, 88);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 15);
+            this.label9.Size = new System.Drawing.Size(119, 25);
             this.label9.TabIndex = 11;
             this.label9.Text = "Reveille, 0700";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(73, 38);
+            this.label8.Location = new System.Drawing.Point(104, 63);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 15);
+            this.label8.Size = new System.Drawing.Size(139, 25);
             this.label8.TabIndex = 10;
             this.label8.Text = "M/T/W/Th Class";
             // 
             // Sound
             // 
             this.Sound.AutoSize = true;
-            this.Sound.Location = new System.Drawing.Point(6, 320);
+            this.Sound.Location = new System.Drawing.Point(9, 533);
+            this.Sound.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Sound.Name = "Sound";
-            this.Sound.Size = new System.Drawing.Size(44, 15);
+            this.Sound.Size = new System.Drawing.Size(68, 25);
             this.Sound.TabIndex = 9;
             this.Sound.Text = "Sound:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 294);
+            this.label7.Location = new System.Drawing.Point(9, 490);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 15);
+            this.label7.Size = new System.Drawing.Size(54, 25);
             this.label7.TabIndex = 8;
             this.label7.Text = "Time:";
             // 
             // cboSoundsToday
             // 
             this.cboSoundsToday.FormattingEnabled = true;
-            this.cboSoundsToday.Location = new System.Drawing.Point(85, 317);
+            this.cboSoundsToday.Location = new System.Drawing.Point(121, 528);
+            this.cboSoundsToday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboSoundsToday.Name = "cboSoundsToday";
-            this.cboSoundsToday.Size = new System.Drawing.Size(159, 23);
+            this.cboSoundsToday.Size = new System.Drawing.Size(225, 33);
             this.cboSoundsToday.TabIndex = 7;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(85, 288);
+            this.dateTimePicker2.Location = new System.Drawing.Point(121, 480);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(99, 23);
+            this.dateTimePicker2.Size = new System.Drawing.Size(140, 31);
             this.dateTimePicker2.TabIndex = 6;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(6, 259);
+            this.button4.Location = new System.Drawing.Point(9, 432);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(117, 23);
+            this.button4.Size = new System.Drawing.Size(167, 38);
             this.button4.TabIndex = 5;
             this.button4.Text = "Remove";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(6, 346);
+            this.button3.Location = new System.Drawing.Point(9, 577);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 23);
+            this.button3.Size = new System.Drawing.Size(167, 38);
             this.button3.TabIndex = 4;
             this.button3.Text = "Add";
             this.button3.UseVisualStyleBackColor = true;
@@ -151,18 +161,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 53);
+            this.label3.Location = new System.Drawing.Point(9, 88);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 15);
+            this.label3.Size = new System.Drawing.Size(52, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Next:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 38);
+            this.label2.Location = new System.Drawing.Point(9, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 15);
+            this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Template: ";
             // 
@@ -170,16 +182,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Location = new System.Drawing.Point(9, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 15);
+            this.label1.Size = new System.Drawing.Size(161, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "January 27th, 2023";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
+            this.listBox1.ItemHeight = 25;
             this.listBox1.Items.AddRange(new object[] {
             "Reveille, 0700",
             "Assembly, 0730",
@@ -189,24 +202,27 @@
             "Assembly, 1130",
             "etc...",
             "Taps, 2200"});
-            this.listBox1.Location = new System.Drawing.Point(6, 84);
+            this.listBox1.Location = new System.Drawing.Point(9, 140);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(238, 169);
+            this.listBox1.Size = new System.Drawing.Size(338, 279);
             this.listBox1.TabIndex = 0;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(53, 20);
+            this.dateTimePicker1.Location = new System.Drawing.Point(9, 34);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(204, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(291, 31);
             this.dateTimePicker1.TabIndex = 1;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(70, 49);
+            this.comboBox1.Location = new System.Drawing.Point(100, 82);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 23);
+            this.comboBox1.Size = new System.Drawing.Size(200, 33);
             this.comboBox1.TabIndex = 2;
             // 
             // groupBox2
@@ -215,9 +231,11 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Location = new System.Drawing.Point(271, 47);
+            this.groupBox2.Location = new System.Drawing.Point(387, 78);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(263, 119);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(311, 198);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Change Day Schedule";
@@ -225,17 +243,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 52);
+            this.label4.Location = new System.Drawing.Point(9, 87);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 15);
+            this.label4.Size = new System.Drawing.Size(87, 25);
             this.label4.TabIndex = 4;
             this.label4.Text = "Template:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 78);
+            this.button1.Location = new System.Drawing.Point(9, 130);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 23);
+            this.button1.Size = new System.Drawing.Size(157, 38);
             this.button1.TabIndex = 3;
             this.button1.Text = "Confirm Change";
             this.button1.UseVisualStyleBackColor = true;
@@ -245,9 +265,11 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.cboSounds);
-            this.groupBox3.Location = new System.Drawing.Point(271, 172);
+            this.groupBox3.Location = new System.Drawing.Point(387, 287);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(263, 85);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Size = new System.Drawing.Size(311, 142);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Play Now";
@@ -255,17 +277,19 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 22);
+            this.label5.Location = new System.Drawing.Point(9, 37);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 15);
+            this.label5.Size = new System.Drawing.Size(42, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "File:";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(6, 48);
+            this.button2.Location = new System.Drawing.Point(9, 80);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 23);
+            this.button2.Size = new System.Drawing.Size(157, 38);
             this.button2.TabIndex = 3;
             this.button2.Text = "Play Sound";
             this.button2.UseVisualStyleBackColor = true;
@@ -274,32 +298,35 @@
             // cboSounds
             // 
             this.cboSounds.FormattingEnabled = true;
-            this.cboSounds.Location = new System.Drawing.Point(40, 19);
+            this.cboSounds.Location = new System.Drawing.Point(57, 32);
+            this.cboSounds.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboSounds.Name = "cboSounds";
-            this.cboSounds.Size = new System.Drawing.Size(217, 23);
+            this.cboSounds.Size = new System.Drawing.Size(243, 33);
             this.cboSounds.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(12, 3);
+            this.label6.Location = new System.Drawing.Point(17, 5);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(447, 41);
+            this.label6.Size = new System.Drawing.Size(652, 60);
             this.label6.TabIndex = 6;
             this.label6.Text = "CWOC Basic Scheduling Module";
             // 
             // BasicFunctionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 450);
+            this.ClientSize = new System.Drawing.Size(716, 750);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BasicFunctionForm";
-            this.Text = "Form2";
+            this.Text = "CWOC BASM";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
