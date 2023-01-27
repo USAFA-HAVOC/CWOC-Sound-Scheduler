@@ -22,5 +22,13 @@ namespace CWOC_Audio_Scheduler
             TimeOnly timeOnly = new TimeOnly(hours, minutes);
             this.time = timeOnly;
         }
+
+        public override string ToString()
+        {
+            string outStr = Path.GetFileNameWithoutExtension(path);
+            outStr += ", ";
+            outStr += time.ToString("HHmm");
+            return outStr;
+        }
     }
 }

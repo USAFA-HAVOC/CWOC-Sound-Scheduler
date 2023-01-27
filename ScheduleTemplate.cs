@@ -40,6 +40,15 @@ namespace CWOC_Audio_Scheduler
         // Sun, mon, ... sat, to be in line with DayOfTheWeek enum
         public bool[] daysDefault = { false, false, false, false, false, false, false };
 
+        public ScheduleTemplate()
+        {
+            startDate = new DateOnly();
+            endDate = new DateOnly();
+            defaultTemplate = false;
+            scheduleObjects = new List<ScheduleObject>();
+            name = "Unnamed";
+        }
+
         public ScheduleTemplate(string filePath)
         {
             //Read from the file, and pass the contents to the "fromString" method

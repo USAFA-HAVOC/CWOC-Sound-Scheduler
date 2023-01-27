@@ -202,7 +202,7 @@
             "Assembly, 1130",
             "etc...",
             "Taps, 2200"});
-            this.listBox1.Location = new System.Drawing.Point(9, 140);
+            this.listBox1.Location = new System.Drawing.Point(9, 136);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(338, 279);

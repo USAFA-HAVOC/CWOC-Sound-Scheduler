@@ -15,6 +15,7 @@ namespace CWOC_Audio_Scheduler
     public partial class BasicFunctionForm : Form
     {
         WaveOutEvent outputDevice = new WaveOutEvent();
+        ScheduleManager manager = new ScheduleManager();
         string path;
         public BasicFunctionForm()
         {

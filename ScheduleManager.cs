@@ -15,6 +15,7 @@ namespace CWOC_Audio_Scheduler
         public List<ScheduleTemplate> templates;
         public List<DayScheduleException> todaysExceptions;
         public List<TemplateDayException> templateDayExceptions;
+        public List<BackgroundWorker> backgroundWorkers;
 
 
         
@@ -23,6 +24,7 @@ namespace CWOC_Audio_Scheduler
             templates = new List<ScheduleTemplate>();
             todaysExceptions = new List<DayScheduleException>();
             templateDayExceptions = new List<TemplateDayException>();
+            backgroundWorkers = new List<BackgroundWorker>();  
         }
 
         public void CreateNextEvent()
@@ -37,11 +39,17 @@ namespace CWOC_Audio_Scheduler
                     {
                         worker = new BackgroundWorker();
                         worker.DoWork += new DoWorkEventHandler(WaitUntilEventTime);
+                        backgroundWorkers.Add(worker);
                         worker.RunWorkerAsync(templates[i].scheduleObjects[j]);
                     }
                     return;
                 }
             }
+        }
+
+        private void killWorker(int index)
+        {
+            backgroundWorkers[index].Dispose();
         }
 
         private void WaitUntilEventTime(object sender, DoWorkEventArgs args)
