@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CWOC Audio Scheduler", "CWOC Audio Scheduler.csproj", "{2ABDBA69-289C-4D70-94E5-859C4BA4C5C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2ABDBA69-289C-4D70-94E5-859C4BA4C5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ABDBA69-289C-4D70-94E5-859C4BA4C5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ABDBA69-289C-4D70-94E5-859C4BA4C5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ABDBA69-289C-4D70-94E5-859C4BA4C5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29E74A81-730E-4F05-88BB-BD759AED2C96}
+	EndGlobalSection
+EndGlobal
