@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XLDvuVcyRtmcAL3idPvaZPbv3wDknXugJk1l9JKai1XXc+mHCHd7sbpi2AaqaoFc9xX7LIxqtCgovnlX8apuBg==",
+  "dgSpecHash": "x+6Hi0Br1Jhu0lVrp4EPQv/pfGMAz0Md6l0Y3EWHJfE/QakxcoGsVOSxJlM5N/6p3HdRsE0xfLcWr1CyH5TfKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC Audio Scheduler\\CWOC Audio Scheduler.csproj",
+  "projectFilePath": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\CWOC Audio Scheduler.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kayleb\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Kayleb\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

@@ -24,3 +24,55 @@ C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC Audio Scheduler\bin\Debug
 C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC Audio Scheduler\obj\Debug\net6.0-windows\CWOC_Audio_Scheduler.BasicFunctionForm.resources
 C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC Audio Scheduler\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.CopyComplete
 C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC Audio Scheduler\obj\Debug\net6.0-windows\CWOC_Audio_Scheduler.FullFunctionForm.resources
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.exe
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.deps.json
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.runtimeconfig.json
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.pdb
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.Asio.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.Core.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.Midi.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.Wasapi.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.WinForms.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.WinMM.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.AssemblyReference.cache
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC_Audio_Scheduler.BasicFunctionForm.resources
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC_Audio_Scheduler.FullFunctionForm.resources
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.GenerateResource.cache
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.AssemblyInfoInputs.cache
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.AssemblyInfo.cs
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.CoreCompileInputs.cache
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.CopyComplete
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\refint\CWOC Audio Scheduler.dll
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.pdb
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.genruntimeconfig.cache
+C:\Users\Kayleb\Downloads\CWOC-Sound-Scheduler-main (2)\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\ref\CWOC Audio Scheduler.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.exe
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.deps.json
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.runtimeconfig.json
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\CWOC Audio Scheduler.pdb
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.Asio.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.Core.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.Midi.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.Wasapi.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.WinForms.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\bin\Debug\net6.0-windows\NAudio.WinMM.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.AssemblyReference.cache
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC_Audio_Scheduler.BasicFunctionForm.resources
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC_Audio_Scheduler.FullFunctionForm.resources
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.GenerateResource.cache
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.AssemblyInfoInputs.cache
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.AssemblyInfo.cs
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.CoreCompileInputs.cache
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.CopyComplete
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\refint\CWOC Audio Scheduler.dll
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.pdb
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\CWOC Audio Scheduler.genruntimeconfig.cache
+C:\Users\Kayleb\source\repos\CWOC Audio Scheduler\CWOC-Sound-Scheduler-main\obj\Debug\net6.0-windows\ref\CWOC Audio Scheduler.dll

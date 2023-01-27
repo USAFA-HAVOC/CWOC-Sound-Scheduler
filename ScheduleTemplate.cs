@@ -37,6 +37,7 @@ namespace CWOC_Audio_Scheduler
 
         // This serves as storage for which days to assume. This could be changed, currently
         // just being abstracted as an array of seven booleans
+        // Sun, mon, ... sat, to be in line with DayOfTheWeek enum
         public bool[] daysDefault = { false, false, false, false, false, false, false };
 
         public ScheduleTemplate(string filePath)
@@ -46,6 +47,20 @@ namespace CWOC_Audio_Scheduler
             return;
         }
 
+        public ScheduleTemplate(string name, List<ScheduleObject> scheduleObjects, 
+                                bool defaultTemplate, DateOnly startDate, DateOnly endDate, 
+                                bool[] daysDefault)
+        {
+            this.name = name;
+            this.scheduleObjects = scheduleObjects;
+            this.defaultTemplate = defaultTemplate;
+            this.startDate = startDate;
+            this.endDate = endDate;
+            this.daysDefault = daysDefault;
+        }
+
+
+
         /**
          * Converts this entire object to a string, mostly for file reading purposes.
          * Binary files are also an option. This solution can be replaces, it just needs
@@ -53,7 +68,7 @@ namespace CWOC_Audio_Scheduler
          */
         public override string ToString()
         {
-            string outStr = name;
+            string outStr = name + "\n";
             for (int i = 0; i < scheduleObjects.Count; i++)
             {
                 outStr += scheduleObjects[i].ToString();
@@ -86,6 +101,10 @@ namespace CWOC_Audio_Scheduler
          */
         public bool schedulesDay(DateOnly day)
         {
+            if (this.defaultTemplate)
+            {
+                return daysDefault[(int) day.DayOfWeek];
+            }
             return false;
         }
     }

@@ -460,11 +460,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC Audio Scheduler\\CWOC Audio Scheduler.csproj",
+      "projectUniqueName": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\CWOC Audio Scheduler.csproj",
       "projectName": "CWOC Audio Scheduler",
-      "projectPath": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC Audio Scheduler\\CWOC Audio Scheduler.csproj",
+      "projectPath": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\CWOC Audio Scheduler.csproj",
       "packagesPath": "C:\\Users\\Kayleb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC Audio Scheduler\\obj\\",
+      "outputPath": "C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kayleb\\AppData\\Roaming\\NuGet\\NuGet.Config",
