@@ -4,6 +4,7 @@ using NAudio.Wave;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,21 +16,23 @@ namespace CWOC_Audio_Scheduler
         public List<ScheduleTemplate> templates;
         public List<DayScheduleException> todaysExceptions;
         public List<TemplateDayException> templateDayExceptions;
-        public List<BackgroundWorker> backgroundWorkers;
+        public List<WorkerPair> backgroundWorkers;
 
+        string logFilePath = "C:\\Users\\Kayleb\\source\\repos\\Audio Scheduler Head\\logfile.txt";
+        StreamWriter streamWriter;
 
-        
         public ScheduleManager()
         {
+            WriteToLog("Begining Log File on " + DateTime.Now.ToString());
             templates = new List<ScheduleTemplate>();
             todaysExceptions = new List<DayScheduleException>();
             templateDayExceptions = new List<TemplateDayException>();
-            backgroundWorkers = new List<BackgroundWorker>();  
+            backgroundWorkers = new List<WorkerPair>(); 
         }
 
         public void CreateNextEvent()
         {
-            BackgroundWorker worker;
+            string outS = "";
             DateOnly today = DateOnly.FromDateTime(DateTime.Now);
             for (int i = 0; i < templates.Count; i++)
             {
@@ -37,30 +40,68 @@ namespace CWOC_Audio_Scheduler
                 {
                     for (int j = 0; j < templates[i].scheduleObjects.Count; j++)
                     {
-                        worker = new BackgroundWorker();
+                        BackgroundWorker worker = new BackgroundWorker();
                         worker.DoWork += new DoWorkEventHandler(WaitUntilEventTime);
-                        backgroundWorkers.Add(worker);
-                        worker.RunWorkerAsync(templates[i].scheduleObjects[j]);
+                        WorkerPair pair = new WorkerPair();
+                        pair.worker = worker;
+                        pair.scheduleObject = templates[i].scheduleObjects[j];
+                        backgroundWorkers.Add(pair);
+                        worker.RunWorkerAsync(pair);
                     }
+                    BackgroundWorker nextDayWorker = new BackgroundWorker();
+                    nextDayWorker.DoWork += new DoWorkEventHandler(LoadNextDay);
+                    nextDayWorker.RunWorkerAsync(nextDayWorker);
                     return;
                 }
             }
         }
-
-        private void killWorker(int index)
+        public void appendTemplate(ScheduleTemplate template)
         {
-            backgroundWorkers[index].Dispose();
+            templates.Add(template);
+        }
+
+        public void killWorker(int index)
+        {
+            backgroundWorkers[index].worker.Dispose();
+            backgroundWorkers.RemoveAt(index);
         }
 
         private void WaitUntilEventTime(object sender, DoWorkEventArgs args)
         {
-            ScheduleObject scheduleObject = (ScheduleObject)args.Argument;
-            TimeSpan eventTime = scheduleObject.time.ToTimeSpan();
-            Thread.Sleep(eventTime);
-            play_sound("C:\\Users\\Kayleb\\source\\repos\\CWOC Audio Scheduler\\CWOC-Sound-Scheduler-main\\sounds\\" + scheduleObject.path);
+            WorkerPair pair = (WorkerPair)args.Argument;
+            ScheduleObject scheduleObject = pair.scheduleObject;
+            TimeSpan sleepTime = scheduleObject.time.ToTimeSpan() - DateTime.Now.TimeOfDay;
+            if (sleepTime.TotalMilliseconds > 0)
+            {
+                Thread.Sleep(sleepTime);
+                play_sound(scheduleObject.path);
+                WriteToLog(pair.scheduleObject.ToString() + "," + DateTime.Now.ToString());
+            }
+            pair.worker.Dispose();
         }
 
+        private void CreateExceptionToday(string path, TimeOnly time)
+        {
+            ScheduleObject scheduleObject = new();
+            scheduleObject.path = path;
+            scheduleObject.time = time; 
 
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += new DoWorkEventHandler(WaitUntilEventTime);
+            WorkerPair pair = new WorkerPair();
+            pair.worker = worker;
+            pair.scheduleObject = scheduleObject;
+            backgroundWorkers.Add(pair);
+            worker.RunWorkerAsync(scheduleObject);
+        }
+
+        private void LoadNextDay(object sender, DoWorkEventArgs args)
+        {
+            TimeSpan sleepTime = (new TimeSpan(23, 59, 59) - DateTime.Now.TimeOfDay) + new TimeSpan(0, 0, 1);
+            Thread.Sleep(sleepTime);
+            this.CreateNextEvent();
+            WriteToLog("New Day Loaded " + DateTime.Now);
+        }
 
         private void play_sound(string path)
         {
@@ -69,6 +110,19 @@ namespace CWOC_Audio_Scheduler
             outputDevice.Init(audioFile);
             outputDevice.Play();
 
+        }
+
+        private void WriteToLog(string str)
+        {
+            if (!File.Exists(logFilePath))
+            {
+                streamWriter = new StreamWriter(logFilePath);
+            } else
+            {
+                streamWriter = new StreamWriter(logFilePath, true);
+            }
+            streamWriter.WriteLine(str);
+            streamWriter.Close();
         }
     }
 
@@ -89,5 +143,16 @@ namespace CWOC_Audio_Scheduler
             this.time = time;
             this.soundPath = soundPath;
         }
+    }
+
+    internal struct WorkerPair
+    {
+        public WorkerPair()
+        {
+            worker = new BackgroundWorker();
+            scheduleObject = new();
+        }
+        public BackgroundWorker worker;
+        public ScheduleObject scheduleObject;
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NAudio.Wave;
+using System.IO;
 
 namespace CWOC_Audio_Scheduler
 {
@@ -21,10 +22,17 @@ namespace CWOC_Audio_Scheduler
         {
             InitializeComponent();
 
+            WorkBench.BuildTemplates();
+            for (int i = 0; i < WorkBench.staticTemplates.Count; i++)
+            {
+                manager.templates.Add(WorkBench.staticTemplates[i]);
+                cboChangeDayTemplates.Items.Add(WorkBench.staticTemplates[i]);
+            }
+            manager.CreateNextEvent();
+
             path =  Application.StartupPath + @"\sounds"; //This is production, but doesn't work in a debug environment
             string[] sounds = { };
-
-            path = "C:\\Users\\cadet_admin\\source\\repos\\CWOC-Sound-Scheduler\\sounds\\";
+            path = "C:\\Users\\Kayleb\\source\\repos\\Audio Scheduler Head\\sounds\\";
             try
             {
                 sounds = Directory.GetFiles(path, "*.mp3*", SearchOption.AllDirectories);
@@ -40,6 +48,16 @@ namespace CWOC_Audio_Scheduler
 
             cboSounds.Items.AddRange(sounds);
             cboSoundsToday.Items.AddRange(sounds);
+            updateTodayListBox();
+        }
+
+        private void updateTodayListBox()
+        {
+            lbxToday.Items.Clear();
+            for (int i = 0; i < manager.backgroundWorkers.Count; i++)
+            {
+                lbxToday.Items.Add(manager.backgroundWorkers[i].scheduleObject);
+            }
         }
 
         private void play_now_btn_click(object sender, EventArgs e)
@@ -63,6 +81,15 @@ namespace CWOC_Audio_Scheduler
             outputDevice.Init(audioFile);
             outputDevice.Play();
 
+        }
+
+        private void btnTodayRemove_Click(object sender, EventArgs e)
+        {
+            if (lbxToday.SelectedIndex != -1)
+            {
+                manager.killWorker(lbxToday.SelectedIndex);
+                updateTodayListBox();
+            }
         }
     }
 }

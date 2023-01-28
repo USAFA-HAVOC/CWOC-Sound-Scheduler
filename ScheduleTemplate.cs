@@ -68,14 +68,17 @@ namespace CWOC_Audio_Scheduler
             this.daysDefault = daysDefault;
         }
 
-
+        public override string ToString()
+        {
+            return name;
+        }
 
         /**
          * Converts this entire object to a string, mostly for file reading purposes.
          * Binary files are also an option. This solution can be replaces, it just needs
          * to be the exact inverse of the fromString() function
          */
-        public override string ToString()
+        public string ToOutputString()
         {
             string outStr = name + "\n";
             for (int i = 0; i < scheduleObjects.Count; i++)
