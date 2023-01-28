@@ -1,0 +1,9 @@
+Begining Log File on 1/27/2023 7:45:02 PM
+TAPS, 2300,1/27/2023 11:00:00 PM
+New Day Loaded 1/28/2023 12:00:00 AM
+Reveille and To the Colors, 0700,1/28/2023 7:00:02 AM
+Assembly, 0730,1/28/2023 7:30:02 AM
+Assembly, 0823,1/28/2023 8:23:02 AM
+Assembly, 0830,1/28/2023 8:30:02 AM
+Assembly, 0923,1/28/2023 9:23:02 AM
+Assembly, 0930,1/28/2023 9:30:02 AM
