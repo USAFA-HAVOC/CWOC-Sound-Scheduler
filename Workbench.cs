@@ -11,7 +11,7 @@ class WorkBench
 
     public static void RunTest()
     {
-        string path = "C:\\Users\\Kayleb\\source\\repos\\Audio Scheduler Head\\sounds\\ACQ.mp3";
+        string path = Path.Combine(Environment.CurrentDirectory, "sounds","ACQ.mp3");
         ScheduleManager scheduleManager = new ScheduleManager();
 
         ScheduleTemplate scheduleTemplate = new ScheduleTemplate();
@@ -28,6 +28,12 @@ class WorkBench
         scheduleManager.appendTemplate(scheduleTemplate);
         scheduleManager.CreateNextEvent();
         int await = 1;
+
+        //Test schedule template serialization
+        var serialized = scheduleTemplate.SerializeJson();
+        System.Console.WriteLine("Serialized Json:" + serialized);
+        ScheduleTemplateSerializer.DeserializeJson(serialized);
+        
     }
 
     // Manually Building Templates before GUI support for this function
@@ -35,7 +41,7 @@ class WorkBench
     // and read into the form on startup
     public static void BuildTemplates()
     {
-        string soundPath = "C:\\Users\\Kayleb\\source\\repos\\Audio Scheduler Head\\sounds\\";
+        string soundPath = Path.Combine(Environment.CurrentDirectory, "sounds");
 
         /**
          * M/T/W/TH Academic Schedule
