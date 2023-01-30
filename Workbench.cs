@@ -28,6 +28,12 @@ class WorkBench
         scheduleManager.appendTemplate(scheduleTemplate);
         scheduleManager.CreateNextEvent();
         int await = 1;
+
+        //Test schedule template serialization
+        var serialized = scheduleTemplate.SerializeJson();
+        System.Console.WriteLine("Serialized Json:" + serialized);
+        ScheduleTemplateSerializer.DeserializeJson(serialized);
+        
     }
 
     // Manually Building Templates before GUI support for this function
