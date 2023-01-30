@@ -33,6 +33,7 @@ namespace CWOC_Audio_Scheduler
             path =  Application.StartupPath + @"\sounds"; //This is production, but doesn't work in a debug environment
             string[] sounds = { };
             path = "C:\\Users\\Kayleb\\source\\repos\\Audio Scheduler Head\\sounds\\";
+            path = Path.Combine(Environment.CurrentDirectory, "sounds"); //Works if files are copied to output folder
             try
             {
                 sounds = Directory.GetFiles(path, "*.mp3*", SearchOption.AllDirectories);

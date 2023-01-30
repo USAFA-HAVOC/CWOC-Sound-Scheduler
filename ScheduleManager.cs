@@ -18,7 +18,7 @@ namespace CWOC_Audio_Scheduler
         public List<TemplateDayException> templateDayExceptions;
         public List<WorkerPair> backgroundWorkers;
 
-        string logFilePath = "C:\\Users\\Kayleb\\source\\repos\\Audio Scheduler Head\\logfile.txt";
+        string logFilePath = "logfile.txt";
         StreamWriter streamWriter;
 
         public ScheduleManager()
@@ -95,6 +95,7 @@ namespace CWOC_Audio_Scheduler
             worker.RunWorkerAsync(scheduleObject);
         }
 
+
         private void LoadNextDay(object sender, DoWorkEventArgs args)
         {
             TimeSpan sleepTime = (new TimeSpan(23, 59, 59) - DateTime.Now.TimeOfDay) + new TimeSpan(0, 0, 1);
@@ -114,12 +115,14 @@ namespace CWOC_Audio_Scheduler
 
         private void WriteToLog(string str)
         {
-            if (!File.Exists(logFilePath))
+            string logFileFullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), logFilePath);
+
+            if (!File.Exists(logFileFullPath))
             {
-                streamWriter = new StreamWriter(logFilePath);
+                streamWriter = new StreamWriter(logFileFullPath);
             } else
             {
-                streamWriter = new StreamWriter(logFilePath, true);
+                streamWriter = new StreamWriter(logFileFullPath, true);
             }
             streamWriter.WriteLine(str);
             streamWriter.Close();
