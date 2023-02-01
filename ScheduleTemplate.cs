@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CWOC_Audio_Scheduler
@@ -26,18 +29,24 @@ namespace CWOC_Audio_Scheduler
      */
     internal class ScheduleTemplate
     {
+        [JsonInclude]
         public string name;
+        [JsonInclude]
         public List<ScheduleObject> scheduleObjects = new();
 
         // This stores whether or not this template should serve as a default template
         // for any day, as well as a day to start/ end.
+        [JsonInclude]
         public bool defaultTemplate;
+        [JsonInclude]
         public DateOnly startDate; // A timespan object might do this better
+        [JsonInclude]
         public DateOnly endDate;
 
         // This serves as storage for which days to assume. This could be changed, currently
         // just being abstracted as an array of seven booleans
         // Sun, mon, ... sat, to be in line with DayOfTheWeek enum
+        [JsonInclude]
         public bool[] daysDefault = { false, false, false, false, false, false, false };
 
         public ScheduleTemplate()
@@ -52,7 +61,6 @@ namespace CWOC_Audio_Scheduler
         public ScheduleTemplate(string filePath)
         {
             //Read from the file, and pass the contents to the "fromString" method
-            name = "Temp";
             return;
         }
 
@@ -105,6 +113,12 @@ namespace CWOC_Audio_Scheduler
         public void ToFile(string path)
         {
             //Convert to string and save to file
+            string fileText = ScheduleTemplateSerializer.SerializeJson(this);
+            MessageBox.Show(fileText);
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name);
+            StreamWriter streamWriter = new StreamWriter(filePath);
+            streamWriter.Write(fileText);
+            streamWriter.Close();
             return;
         }
 

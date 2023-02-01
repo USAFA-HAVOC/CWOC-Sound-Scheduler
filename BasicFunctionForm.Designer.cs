@@ -124,10 +124,11 @@
             // dtpTodayTime
             // 
             this.dtpTodayTime.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dtpTodayTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpTodayTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTodayTime.Location = new System.Drawing.Point(85, 288);
             this.dtpTodayTime.Name = "dtpTodayTime";
-            this.dtpTodayTime.Size = new System.Drawing.Size(99, 23);
+            this.dtpTodayTime.RightToLeftLayout = true;
+            this.dtpTodayTime.Size = new System.Drawing.Size(81, 23);
             this.dtpTodayTime.TabIndex = 6;
             // 
             // btnTodayRemove
@@ -148,6 +149,7 @@
             this.btnTodayAdd.TabIndex = 4;
             this.btnTodayAdd.Text = "Add";
             this.btnTodayAdd.UseVisualStyleBackColor = true;
+            this.btnTodayAdd.Click += new System.EventHandler(this.btnTodayAdd_Click);
             // 
             // label3
             // 

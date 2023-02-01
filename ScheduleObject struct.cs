@@ -15,12 +15,25 @@ namespace CWOC_Audio_Scheduler
     {
         public string path;
         public TimeOnly time;
+        public bool disabled = false;
 
         public ScheduleObject(string path, int hours, int minutes)
         {
             this.path = path;
             TimeOnly timeOnly = new TimeOnly(hours, minutes);
             this.time = timeOnly;
+        }
+
+        public ScheduleObject(string path, TimeOnly time)
+        {
+            this.path = path;
+            this.time = time;
+        }
+
+
+        public void ToggleDisabled()
+        {
+            this.disabled = !this.disabled;
         }
 
         public override string ToString()

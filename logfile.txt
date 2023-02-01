@@ -1,9 +1,66 @@
-Begining Log File on 1/27/2023 7:45:02 PM
-TAPS, 2300,1/27/2023 11:00:00 PM
-New Day Loaded 1/28/2023 12:00:00 AM
-Reveille and To the Colors, 0700,1/28/2023 7:00:02 AM
-Assembly, 0730,1/28/2023 7:30:02 AM
-Assembly, 0823,1/28/2023 8:23:02 AM
-Assembly, 0830,1/28/2023 8:30:02 AM
-Assembly, 0923,1/28/2023 9:23:02 AM
-Assembly, 0930,1/28/2023 9:30:02 AM
+Begining Log File on 1/31/2023 11:09:10 PM
+Begining Log File on 1/31/2023 11:09:52 PM
+Begining Log File on 1/31/2023 11:10:40 PM
+Begining Log File on 1/31/2023 11:13:43 PM
+Begining Log File on 1/31/2023 11:15:20 PM
+Begining Log File on 1/31/2023 11:16:19 PM
+Begining Log File on 1/31/2023 11:17:46 PM
+Begining Log File on 1/31/2023 11:20:32 PM
+Begining Log File on 1/31/2023 11:21:14 PM
+Begining Log File on 1/31/2023 11:21:25 PM
+Begining Log File on 1/31/2023 11:26:34 PM
+Assembly, 2327,1/31/2023 11:27:00 PM
+Assembly, 2328,1/31/2023 11:28:00 PM
+Begining Log File on 1/31/2023 11:56:32 PM
+Begining Log File on 1/31/2023 11:57:28 PM
+Begining Log File on 1/31/2023 11:58:30 PM
+Begining Log File on 2/1/2023 12:02:54 AM
+ACQ, 0003,2/1/2023 12:03:07 AM
+ACQ, 0004,2/1/2023 12:04:02 AM
+Begining Log File on 2/1/2023 12:04:44 AM
+Begining Log File on 2/1/2023 12:06:02 AM
+ACQ, 0007,2/1/2023 12:07:01 AM
+Begining Log File on 2/1/2023 12:07:11 AM
+ACQ, 0008,2/1/2023 12:08:02 AM
+ACQ, 0009,2/1/2023 12:09:01 AM
+Begining Log File on 2/1/2023 12:09:34 AM
+Begining Log File on 2/1/2023 12:10:53 AM
+Begining Log File on 2/1/2023 12:11:02 AM
+Begining Log File on 2/1/2023 12:11:28 AM
+ACQ, 0014,2/1/2023 12:14:00 AM
+ACQ, 0015,2/1/2023 12:15:00 AM
+Begining Log File on 2/1/2023 12:16:58 AM
+ACQ, 0018,2/1/2023 12:18:00 AM
+ACQ, 0019,2/1/2023 12:19:00 AM ---DISABLED---
+Begining Log File on 2/1/2023 12:53:58 AM
+Begining Log File on 2/1/2023 1:00:50 AM
+Begining Log File on 2/1/2023 1:01:36 AM
+Begining Log File on 2/1/2023 1:02:27 AM
+Begining Log File on 2/1/2023 1:06:33 AM
+Begining Log File on 2/1/2023 1:21:30 AM
+Begining Log File on 2/1/2023 1:22:31 AM
+Begining Log File on 2/1/2023 1:23:10 AM
+Begining Log File on 2/1/2023 1:25:10 AM
+Begining Log File on 2/1/2023 1:33:53 AM
+Begining Log File on 2/1/2023 1:35:22 AM
+Assembly, 0136,2/1/2023 1:36:00 AM
+Assembly, 0137,2/1/2023 1:37:00 AM ---DISABLED---
+Begining Log File on 2/1/2023 1:55:03 AM
+Begining Log File on 2/1/2023 2:17:57 AM
+Begining Log File on 2/1/2023 2:22:46 AM
+Begining Log File on 2/1/2023 2:23:30 AM
+Begining Log File on 2/1/2023 2:26:28 AM
+Begining Log File on 2/1/2023 2:27:15 AM
+Begining Log File on 2/1/2023 2:27:33 AM
+Assembly, 0228,2/1/2023 2:28:33 AM
+Begining Log File on 2/1/2023 2:31:21 AM
+Begining Log File on 2/1/2023 2:33:45 AM
+Begining Log File on 2/1/2023 2:34:08 AM
+Begining Log File on 2/1/2023 2:34:42 AM
+Begining Log File on 2/1/2023 2:34:58 AM
+Begining Log File on 2/1/2023 2:35:42 AM
+file_example_MP3_700KB, 0237,2/1/2023 2:37:00 AM
+Begining Log File on 2/1/2023 2:38:05 AM
+Begining Log File on 2/1/2023 2:39:34 AM
+Begining Log File on 2/1/2023 2:40:04 AM
+Begining Log File on 2/1/2023 2:40:27 AM

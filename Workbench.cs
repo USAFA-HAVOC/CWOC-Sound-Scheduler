@@ -11,6 +11,8 @@ class WorkBench
 
     public static void RunTest()
     {
+        BuildTemplates();
+        return;
         string path = Path.Combine(Environment.CurrentDirectory, "sounds","ACQ.mp3");
         ScheduleManager scheduleManager = new ScheduleManager();
 
@@ -26,7 +28,7 @@ class WorkBench
         scheduleTemplate.scheduleObjects.Add(scheduleObject);
         scheduleTemplate.scheduleObjects.Add(scheduleObject1);
         scheduleManager.appendTemplate(scheduleTemplate);
-        scheduleManager.CreateNextEvent();
+        scheduleManager.CreateNextDayEvents();
         int await = 1;
 
         //Test schedule template serialization
@@ -42,6 +44,7 @@ class WorkBench
     public static void BuildTemplates()
     {
         string soundPath = Path.Combine(Environment.CurrentDirectory, "sounds");
+        soundPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, "sounds\\");
 
         /**
          * M/T/W/TH Academic Schedule
@@ -62,7 +65,8 @@ class WorkBench
         weekDayAcademicTemplate.daysDefault[(int)DayOfWeek.Sunday] = true;
 
         // Build Schedule of Calls
-        weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Reveille and To the Colors.mp3", 7, 00));
+        weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 01, 36));
+        weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 01, 37));
         weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 7,  30));
         weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 8,  23));
         weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 8,  30));
@@ -139,6 +143,11 @@ class WorkBench
 
         staticTemplates.Add(sundayTemplate);
 
+        ScheduleTemplate emptyTemplate = new ScheduleTemplate();
+        emptyTemplate.defaultTemplate = false;
+        emptyTemplate.name = "None";
+
+        staticTemplates.Add(emptyTemplate);
     }
 
 }
