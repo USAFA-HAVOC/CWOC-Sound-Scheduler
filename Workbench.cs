@@ -65,8 +65,7 @@ class WorkBench
         weekDayAcademicTemplate.daysDefault[(int)DayOfWeek.Sunday] = true;
 
         // Build Schedule of Calls
-        weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 01, 36));
-        weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 01, 37));
+        weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Reveille and To the Colors.mp3", 7, 00));
         weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 7,  30));
         weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 8,  23));
         weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Assembly.mp3", 8,  30));

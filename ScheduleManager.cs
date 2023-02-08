@@ -19,9 +19,10 @@ namespace CWOC_Audio_Scheduler
         public List<TemplateDayException> templateDayExceptions;
         public List<WorkerPair> backgroundWorkers;
         public BasicFunctionForm? parentForm = null;
+        public ScheduleTemplate? todayTemplate;
 
         string logFilePath = "logfile.txt";
-        StreamWriter streamWriter;
+        StreamWriter? streamWriter;
 
         public ScheduleManager(BasicFunctionForm? form=null)
         {
@@ -72,6 +73,7 @@ namespace CWOC_Audio_Scheduler
 
         private void CreateScheduleEvents(ScheduleTemplate template)
         {
+            todayTemplate = template;
             WriteToLog("Creating events based on template: " + template.name);
             for (int j = 0; j < template.scheduleObjects.Count; j++)
             {
@@ -98,10 +100,12 @@ namespace CWOC_Audio_Scheduler
                     parentForm.BeginInvoke((MethodInvoker)delegate
                     {
                         parentForm.updateTodayListBox();
+                        parentForm.updateTodayLabels();
                     });
                 } else
                 {
                     parentForm.updateTodayListBox();
+                    parentForm.updateTodayLabels();
                 }
             }
         }
@@ -120,7 +124,7 @@ namespace CWOC_Audio_Scheduler
                 if (so.time == scheduleObject.time && so.path == scheduleObject.path)
                 {
                     worker.CancelAsync();
-                    so.ToggleDisabled();
+                    so.disabled = true;
                     WorkerPair newPair = new();
                     newPair.scheduleObject = so;
                     newPair.worker = worker;
@@ -163,9 +167,20 @@ namespace CWOC_Audio_Scheduler
             pair.worker = worker;
             pair.scheduleObject = scheduleObject;
 
-
-            backgroundWorkers.Add(pair);
+            int index = 0;
+            while (backgroundWorkers[index].scheduleObject.time < scheduleObject.time)
+            {
+                index++;
+            }
+            backgroundWorkers.Insert(index, pair);
             worker.RunWorkerAsync(pair);
+
+            if (parentForm != null && parentForm.InvokeRequired)
+            {
+                parentForm.BeginInvoke((MethodInvoker)delegate {
+                    parentForm.updateTodayLabels();
+                });
+            }
         }
 
         public void CreateTemplateDayException(ScheduleTemplate template, DateOnly day)
@@ -192,6 +207,12 @@ namespace CWOC_Audio_Scheduler
             outputDevice.Init(audioFile);
             outputDevice.Play();
 
+            if (parentForm != null && parentForm.InvokeRequired)
+            {
+                parentForm.BeginInvoke((MethodInvoker) delegate {
+                    parentForm.updateTodayLabels();
+                });
+            }
         }
 
         private void WriteToLog(string str)

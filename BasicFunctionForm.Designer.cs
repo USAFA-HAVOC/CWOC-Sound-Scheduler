@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.grpToday = new System.Windows.Forms.GroupBox();
-            this.lblTodayNext = new System.Windows.Forms.Label();
+            this.lblTodayNextSound = new System.Windows.Forms.Label();
             this.lblTodayTemplate = new System.Windows.Forms.Label();
             this.Sound = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             // 
             // grpToday
             // 
-            this.grpToday.Controls.Add(this.lblTodayNext);
+            this.grpToday.Controls.Add(this.lblTodayNextSound);
             this.grpToday.Controls.Add(this.lblTodayTemplate);
             this.grpToday.Controls.Add(this.Sound);
             this.grpToday.Controls.Add(this.label7);
@@ -77,14 +77,14 @@
             this.grpToday.TabStop = false;
             this.grpToday.Text = "Today\'s Schedule";
             // 
-            // lblTodayNext
+            // lblTodayNextSound
             // 
-            this.lblTodayNext.AutoSize = true;
-            this.lblTodayNext.Location = new System.Drawing.Point(73, 53);
-            this.lblTodayNext.Name = "lblTodayNext";
-            this.lblTodayNext.Size = new System.Drawing.Size(77, 15);
-            this.lblTodayNext.TabIndex = 11;
-            this.lblTodayNext.Text = "Reveille, 0700";
+            this.lblTodayNextSound.AutoSize = true;
+            this.lblTodayNextSound.Location = new System.Drawing.Point(73, 53);
+            this.lblTodayNextSound.Name = "lblTodayNextSound";
+            this.lblTodayNextSound.Size = new System.Drawing.Size(77, 15);
+            this.lblTodayNextSound.TabIndex = 11;
+            this.lblTodayNextSound.Text = "Reveille, 0700";
             // 
             // lblTodayTemplate
             // 
@@ -331,7 +331,7 @@
         private Button button2;
         private ComboBox comboBox2;
         private Label lblName;
-        private Label lblTodayNext;
+        private Label lblTodayNextSound;
         private Label lblTodayTemplate;
         private ComboBox cboSounds;
         private ComboBox cboSoundsToday;

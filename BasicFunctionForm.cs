@@ -67,6 +67,28 @@ namespace CWOC_Audio_Scheduler
             buildUpdateListBox();
         }
 
+        public void updateTodayLabels()
+        {
+            if (lbxToday.Items.Count == 0)
+            {
+                lblTodayNextSound.Text = "Tomorrow";
+                return;
+            }
+            TimeOnly now = TimeOnly.FromDateTime(DateTime.Now);
+            ScheduleObject nextSound = (ScheduleObject)lbxToday.Items[0];
+
+            for (int i = 0; i < lbxToday.Items.Count; i++)
+            {
+                ScheduleObject item = (ScheduleObject) lbxToday.Items[i];
+                if (item.time.IsBetween(now, item.time))
+                {
+                    nextSound = item;
+                }
+            }
+
+            lblTodayNextSound.Text = nextSound.ToString();
+        }
+
         private void buildUpdateListBox()
         {
             lbxToday.Items.Clear();
@@ -78,23 +100,7 @@ namespace CWOC_Audio_Scheduler
                 }
             }
 
-            if (lbxToday.Items.Count > 0)
-            {
-
-                for (int i = 0; i < manager.todaysExceptions.Count; i++)
-                {
-                    ScheduleObject scheduleException = manager.todaysExceptions[i];
-
-                    int j = 0;
-                    ScheduleObject comparingObject = (ScheduleObject)lbxToday.Items[0];
-                    while (j < WorkBench.staticTemplates.Count - 1 && scheduleException.time > comparingObject.time)
-                    {
-                        j++;
-                        comparingObject = (ScheduleObject)lbxToday.Items[j];
-                    }
-                    lbxToday.Items.Insert(j, scheduleException);
-                }
-            }
+            lblTodayTemplate.Text = manager.todayTemplate.ToString();
         }
 
         private void play_now_btn_click(object sender, EventArgs e)
@@ -129,6 +135,7 @@ namespace CWOC_Audio_Scheduler
                 ScheduleObject ob = (ScheduleObject)lbxToday.SelectedItem;
                 manager.killWorker(ob);
                 updateTodayListBox();
+                updateTodayLabels();
             }
         }
 
@@ -140,6 +147,7 @@ namespace CWOC_Audio_Scheduler
                 ScheduleObject so = new ScheduleObject(path, TimeOnly.Parse(dtpTodayTime.Text));
                 manager.CreateExceptionToday(path, TimeOnly.Parse(dtpTodayTime.Text));
                 updateTodayListBox();
+                updateTodayLabels();
             }
         }
 
@@ -160,14 +168,15 @@ namespace CWOC_Audio_Scheduler
         {
             DateOnly day = DateOnly.FromDateTime(dtpTemplateDayChanger.Value);
             DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+            int compare = day.CompareTo(today);
+            cboChangeDayTemplates.SelectedItem = manager.GetTemplateForDay(day);
 
-            if (day.CompareTo(today) >= 0)
+            if (compare <= 0)
             {
-                cboChangeDayTemplates.SelectedItem = manager.GetTemplateForDay(day);
-            }
-            else
+                btnCreateTemplateDayException.Enabled = false;
+            } else
             {
-                cboChangeDayTemplates.SelectedItem = null;
+                btnCreateTemplateDayException.Enabled = true;
             }
         }
     }
