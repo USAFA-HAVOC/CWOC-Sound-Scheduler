@@ -17,13 +17,12 @@ namespace CWOC_Audio_Scheduler
     public partial class BasicFunctionForm : Form
     {
         WaveOutEvent outputDevice = new WaveOutEvent();
-        ScheduleManager manager = new ScheduleManager();
+        ScheduleManager manager;
         string path;
         public BasicFunctionForm()
         {
+            manager = new ScheduleManager(this);
             InitializeComponent();
-            dtpTodayTime.CustomFormat = "HHmm";
-            dtpTodayTime.ShowUpDown = true;
 
             WorkBench.BuildTemplates();
             InitTemplateCboBoxes();
@@ -51,6 +50,7 @@ namespace CWOC_Audio_Scheduler
             cboSounds.Items.AddRange(sounds);
             cboSoundsToday.Items.AddRange(sounds);
             updateTodayListBox();
+            updateChangeDaySchedule();
         }
 
         private void InitTemplateCboBoxes()
@@ -62,7 +62,12 @@ namespace CWOC_Audio_Scheduler
             }
         }
 
-        private void updateTodayListBox()
+        public void updateTodayListBox()
+        {
+            buildUpdateListBox();
+        }
+
+        private void buildUpdateListBox()
         {
             lbxToday.Items.Clear();
             for (int i = 0; i < manager.backgroundWorkers.Count; i++)
@@ -73,7 +78,8 @@ namespace CWOC_Audio_Scheduler
                 }
             }
 
-            if (lbxToday.Items.Count > 0) {
+            if (lbxToday.Items.Count > 0)
+            {
 
                 for (int i = 0; i < manager.todaysExceptions.Count; i++)
                 {
@@ -134,6 +140,34 @@ namespace CWOC_Audio_Scheduler
                 ScheduleObject so = new ScheduleObject(path, TimeOnly.Parse(dtpTodayTime.Text));
                 manager.CreateExceptionToday(path, TimeOnly.Parse(dtpTodayTime.Text));
                 updateTodayListBox();
+            }
+        }
+
+        private void create_template_day_exception_Click(object sender, EventArgs e)
+        {
+            if (cboChangeDayTemplates.SelectedItem != null)
+            {
+                manager.CreateTemplateDayException((ScheduleTemplate)cboChangeDayTemplates.SelectedItem, DateOnly.Parse(dtpTemplateDayChanger.Text));
+            }
+        }
+
+        private void dtpTemplateDayChanger_ValueChanged(object sender, EventArgs e)
+        {
+            updateChangeDaySchedule();
+        }
+
+        private void updateChangeDaySchedule()
+        {
+            DateOnly day = DateOnly.FromDateTime(dtpTemplateDayChanger.Value);
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+
+            if (day.CompareTo(today) >= 0)
+            {
+                cboChangeDayTemplates.SelectedItem = manager.GetTemplateForDay(day);
+            }
+            else
+            {
+                cboChangeDayTemplates.SelectedItem = null;
             }
         }
     }

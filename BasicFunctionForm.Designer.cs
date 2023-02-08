@@ -41,11 +41,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblTodayDay = new System.Windows.Forms.Label();
             this.lbxToday = new System.Windows.Forms.ListBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpTemplateDayChanger = new System.Windows.Forms.DateTimePicker();
             this.cboChangeDayTemplates = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreateTemplateDayException = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -124,7 +124,7 @@
             // dtpTodayTime
             // 
             this.dtpTodayTime.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dtpTodayTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTodayTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpTodayTime.Location = new System.Drawing.Point(85, 288);
             this.dtpTodayTime.Name = "dtpTodayTime";
             this.dtpTodayTime.RightToLeftLayout = true;
@@ -189,12 +189,13 @@
             this.lbxToday.Size = new System.Drawing.Size(238, 169);
             this.lbxToday.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // dtpTemplateDayChanger
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 20);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(205, 23);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtpTemplateDayChanger.Location = new System.Drawing.Point(6, 20);
+            this.dtpTemplateDayChanger.Name = "dtpTemplateDayChanger";
+            this.dtpTemplateDayChanger.Size = new System.Drawing.Size(205, 23);
+            this.dtpTemplateDayChanger.TabIndex = 1;
+            this.dtpTemplateDayChanger.ValueChanged += new System.EventHandler(this.dtpTemplateDayChanger_ValueChanged);
             // 
             // cboChangeDayTemplates
             // 
@@ -207,8 +208,8 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.btnCreateTemplateDayException);
+            this.groupBox2.Controls.Add(this.dtpTemplateDayChanger);
             this.groupBox2.Controls.Add(this.cboChangeDayTemplates);
             this.groupBox2.Location = new System.Drawing.Point(271, 47);
             this.groupBox2.Name = "groupBox2";
@@ -226,14 +227,15 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Template:";
             // 
-            // button1
+            // btnCreateTemplateDayException
             // 
-            this.button1.Location = new System.Drawing.Point(6, 78);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Confirm Change";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCreateTemplateDayException.Location = new System.Drawing.Point(6, 78);
+            this.btnCreateTemplateDayException.Name = "btnCreateTemplateDayException";
+            this.btnCreateTemplateDayException.Size = new System.Drawing.Size(110, 23);
+            this.btnCreateTemplateDayException.TabIndex = 3;
+            this.btnCreateTemplateDayException.Text = "Confirm Change";
+            this.btnCreateTemplateDayException.UseVisualStyleBackColor = true;
+            this.btnCreateTemplateDayException.Click += new System.EventHandler(this.create_template_day_exception_Click);
             // 
             // groupBox3
             // 
@@ -313,11 +315,11 @@
         private Label label2;
         private Label lblTodayDay;
         private ListBox lbxToday;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpTemplateDayChanger;
         private ComboBox cboChangeDayTemplates;
         private GroupBox groupBox2;
         private Label label4;
-        private Button button1;
+        private Button btnCreateTemplateDayException;
         private Label Sound;
         private Label label7;
         private ComboBox comboBox3;

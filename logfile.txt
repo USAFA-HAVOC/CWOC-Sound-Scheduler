@@ -64,3 +64,40 @@ Begining Log File on 2/1/2023 2:38:05 AM
 Begining Log File on 2/1/2023 2:39:34 AM
 Begining Log File on 2/1/2023 2:40:04 AM
 Begining Log File on 2/1/2023 2:40:27 AM
+Begining Log File on 2/1/2023 2:43:03 AM
+Begining Log File on 2/7/2023 6:23:38 PM
+Creating events based on template: M/T/W/Th Academics
+Begining Log File on 2/7/2023 6:25:36 PM
+Creating events based on template: M/T/W/Th Academics
+Begining Log File on 2/7/2023 11:58:46 PM
+Creating events based on template: M/T/W/Th Academics
+Creating events based on template: Saturday: Blue
+New Day Loaded 2/8/2023 12:00:00 AM
+Begining Log File on 2/8/2023 11:58:30 AM
+Creating events based on template: M/T/W/Th Academics
+Begining Log File on 2/8/2023 12:00:16 PM
+Creating events based on template: M/T/W/Th Academics
+Begining Log File on 2/7/2023 11:58:26 PM
+Creating events based on template: M/T/W/Th Academics
+Creating events based on template: Saturday: Blue
+Begining Log File on 2/7/2023 11:58:25 AM
+Creating events based on template: M/T/W/Th Academics
+Begining Log File on 2/7/2023 12:00:33 PM
+Creating events based on template: M/T/W/Th Academics
+Begining Log File on 2/7/2023 11:58:26 PM
+Creating events based on template: M/T/W/Th Academics
+Creating events based on template: Sunday
+Begining Log File on 2/8/2023 12:02:23 AM
+Creating events based on template: M/T/W/Th Academics
+Begining Log File on 2/7/2023 11:59:29 PM
+Creating events based on template: M/T/W/Th Academics
+Creating events based on template: Sunday
+Begining Log File on 2/8/2023 12:01:00 AM
+Creating events based on template: M/T/W/Th Academics
+Begining Log File on 2/8/2023 11:59:06 PM
+Creating events based on template: M/T/W/Th Academics
+Creating events based on template: Sunday
+Begining Log File on 2/7/2023 11:59:30 PM
+Creating events based on template: M/T/W/Th Academics
+Creating events based on template: Sunday
+New Day Loaded 2/8/2023 12:00:00 AM

@@ -18,13 +18,14 @@ namespace CWOC_Audio_Scheduler
         public List<ScheduleObject> todaysExceptions;
         public List<TemplateDayException> templateDayExceptions;
         public List<WorkerPair> backgroundWorkers;
-        public BasicFunctionForm parentForm;
+        public BasicFunctionForm? parentForm = null;
 
         string logFilePath = "logfile.txt";
         StreamWriter streamWriter;
 
-        public ScheduleManager()
+        public ScheduleManager(BasicFunctionForm? form=null)
         {
+            this.parentForm = form;
             WriteToLog("Begining Log File on " + DateTime.Now.ToString());
             templates = new List<ScheduleTemplate>();
             todaysExceptions = new List<ScheduleObject>();
@@ -34,7 +35,9 @@ namespace CWOC_Audio_Scheduler
 
         public void CreateNextDayEvents()
         {
-            string outS = "";
+            todaysExceptions = new List<ScheduleObject>();
+            backgroundWorkers = new List<WorkerPair>();
+
             DateOnly today = DateOnly.FromDateTime(DateTime.Now);
 
             for (int i = 0; i < templateDayExceptions.Count; i++)
@@ -69,16 +72,37 @@ namespace CWOC_Audio_Scheduler
 
         private void CreateScheduleEvents(ScheduleTemplate template)
         {
+            WriteToLog("Creating events based on template: " + template.name);
             for (int j = 0; j < template.scheduleObjects.Count; j++)
             {
-                BackgroundWorker worker = new BackgroundWorker();
-                worker.DoWork += new DoWorkEventHandler(WaitUntilEventTime);
-                WorkerPair pair = new WorkerPair();
-                pair.worker = worker;
-                pair.scheduleObject = template.scheduleObjects[j];
-                worker.WorkerSupportsCancellation = true;
-                backgroundWorkers.Add(pair);
-                worker.RunWorkerAsync(pair);
+                TimeOnly eventTime = template.scheduleObjects[j].time;
+                if (eventTime.Hour == 0 && eventTime.Minute == 0)
+                {
+                    play_sound(template.scheduleObjects[j].path);
+                } else
+                {
+                    BackgroundWorker worker = new BackgroundWorker();
+                    worker.DoWork += new DoWorkEventHandler(WaitUntilEventTime);
+                    WorkerPair pair = new WorkerPair();
+                    pair.worker = worker;
+                    pair.scheduleObject = template.scheduleObjects[j];
+                    worker.WorkerSupportsCancellation = true;
+                    backgroundWorkers.Add(pair);
+                    worker.RunWorkerAsync(pair);
+                }
+            }
+            if (parentForm != null)
+            {
+                if (parentForm.InvokeRequired)
+                {
+                    parentForm.BeginInvoke((MethodInvoker)delegate
+                    {
+                        parentForm.updateTodayListBox();
+                    });
+                } else
+                {
+                    parentForm.updateTodayListBox();
+                }
             }
         }
 
@@ -184,6 +208,26 @@ namespace CWOC_Audio_Scheduler
             }
             streamWriter.WriteLine(str);
             streamWriter.Close();
+        }
+
+        public ScheduleTemplate GetTemplateForDay(DateOnly day)
+        {
+            for (int i = 0; i < templateDayExceptions.Count; i++)
+            {
+                if (templateDayExceptions[i].date.Equals(day))
+                {
+                    return templateDayExceptions[i].template;
+                }
+            }
+
+            for (int i = 0; i < templates.Count; i++)
+            {
+                if (templates[i].schedulesDay(day))
+                {
+                    return templates[i];
+                }
+            }
+            return templates.Last();
         }
     }
 
