@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Xsl;
 
 namespace CWOC_Audio_Scheduler
 {
@@ -154,10 +155,33 @@ namespace CWOC_Audio_Scheduler
                 time = time.Add(new TimeSpan(days: 1, 0, 0, 0));
             }
 
-            int index = 0;
-            while (index < backgroundWorkers.Count() && backgroundWorkers[index].scheduleObject.time.ToTimeSpan() < time)
+            TimeSpan compTime = new TimeSpan();
+            if (backgroundWorkers.Count() > 0)
             {
-                index++;
+                compTime = backgroundWorkers[0].scheduleObject.time.ToTimeSpan();
+                if (backgroundWorkers[0].scheduleObject.nextDay)
+                {
+                    compTime = compTime.Add(new TimeSpan(1, 0, 0, 0));
+                }
+            }
+
+            int index = 0;
+            bool exit = false;
+            while (!exit && backgroundWorkers.Count() > index)
+            {
+                compTime = backgroundWorkers[index].scheduleObject.time.ToTimeSpan();
+                if (backgroundWorkers[index].scheduleObject.nextDay)
+                {
+                    compTime = compTime.Add(new TimeSpan(1, 0, 0, 0));
+                }
+
+                if (compTime < time)
+                {
+                    index++;
+                } else
+                {
+                    exit = true;
+                }
             }
             backgroundWorkers.Insert(index, pair);
             worker.RunWorkerAsync(pair);
@@ -284,7 +308,15 @@ namespace CWOC_Audio_Scheduler
                     newPair.scheduleObject = newObj;
                     newPair.worker = newWorker;
 
-                    outList.Add(newPair);
+                    TimeOnly time = newObj.time;
+
+                    int index = 0;
+                    while(index < outList.Count && outList[index].scheduleObject.time < time)
+                    {
+                        index++;
+                    }
+                    MessageBox.Show(newObj.ToString() + " " + index);
+                    outList.Insert(index, newPair);
                 }
             }
             backgroundWorkers = outList;
