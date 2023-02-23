@@ -1,139 +1,42 @@
-Begining Log File on 1/31/2023 11:09:10 PM
-Begining Log File on 1/31/2023 11:09:52 PM
-Begining Log File on 1/31/2023 11:10:40 PM
-Begining Log File on 1/31/2023 11:13:43 PM
-Begining Log File on 1/31/2023 11:15:20 PM
-Begining Log File on 1/31/2023 11:16:19 PM
-Begining Log File on 1/31/2023 11:17:46 PM
-Begining Log File on 1/31/2023 11:20:32 PM
-Begining Log File on 1/31/2023 11:21:14 PM
-Begining Log File on 1/31/2023 11:21:25 PM
-Begining Log File on 1/31/2023 11:26:34 PM
-Assembly, 2327,1/31/2023 11:27:00 PM
-Assembly, 2328,1/31/2023 11:28:00 PM
-Begining Log File on 1/31/2023 11:56:32 PM
-Begining Log File on 1/31/2023 11:57:28 PM
-Begining Log File on 1/31/2023 11:58:30 PM
-Begining Log File on 2/1/2023 12:02:54 AM
-ACQ, 0003,2/1/2023 12:03:07 AM
-ACQ, 0004,2/1/2023 12:04:02 AM
-Begining Log File on 2/1/2023 12:04:44 AM
-Begining Log File on 2/1/2023 12:06:02 AM
-ACQ, 0007,2/1/2023 12:07:01 AM
-Begining Log File on 2/1/2023 12:07:11 AM
-ACQ, 0008,2/1/2023 12:08:02 AM
-ACQ, 0009,2/1/2023 12:09:01 AM
-Begining Log File on 2/1/2023 12:09:34 AM
-Begining Log File on 2/1/2023 12:10:53 AM
-Begining Log File on 2/1/2023 12:11:02 AM
-Begining Log File on 2/1/2023 12:11:28 AM
-ACQ, 0014,2/1/2023 12:14:00 AM
-ACQ, 0015,2/1/2023 12:15:00 AM
-Begining Log File on 2/1/2023 12:16:58 AM
-ACQ, 0018,2/1/2023 12:18:00 AM
-ACQ, 0019,2/1/2023 12:19:00 AM ---DISABLED---
-Begining Log File on 2/1/2023 12:53:58 AM
-Begining Log File on 2/1/2023 1:00:50 AM
-Begining Log File on 2/1/2023 1:01:36 AM
-Begining Log File on 2/1/2023 1:02:27 AM
-Begining Log File on 2/1/2023 1:06:33 AM
-Begining Log File on 2/1/2023 1:21:30 AM
-Begining Log File on 2/1/2023 1:22:31 AM
-Begining Log File on 2/1/2023 1:23:10 AM
-Begining Log File on 2/1/2023 1:25:10 AM
-Begining Log File on 2/1/2023 1:33:53 AM
-Begining Log File on 2/1/2023 1:35:22 AM
-Assembly, 0136,2/1/2023 1:36:00 AM
-Assembly, 0137,2/1/2023 1:37:00 AM ---DISABLED---
-Begining Log File on 2/1/2023 1:55:03 AM
-Begining Log File on 2/1/2023 2:17:57 AM
-Begining Log File on 2/1/2023 2:22:46 AM
-Begining Log File on 2/1/2023 2:23:30 AM
-Begining Log File on 2/1/2023 2:26:28 AM
-Begining Log File on 2/1/2023 2:27:15 AM
-Begining Log File on 2/1/2023 2:27:33 AM
-Assembly, 0228,2/1/2023 2:28:33 AM
-Begining Log File on 2/1/2023 2:31:21 AM
-Begining Log File on 2/1/2023 2:33:45 AM
-Begining Log File on 2/1/2023 2:34:08 AM
-Begining Log File on 2/1/2023 2:34:42 AM
-Begining Log File on 2/1/2023 2:34:58 AM
-Begining Log File on 2/1/2023 2:35:42 AM
-file_example_MP3_700KB, 0237,2/1/2023 2:37:00 AM
-Begining Log File on 2/1/2023 2:38:05 AM
-Begining Log File on 2/1/2023 2:39:34 AM
-Begining Log File on 2/1/2023 2:40:04 AM
-Begining Log File on 2/1/2023 2:40:27 AM
-Begining Log File on 2/1/2023 2:43:03 AM
-Begining Log File on 2/7/2023 6:23:38 PM
+Begining Log File on 2/22/2023 1:37:43 PM
 Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/7/2023 6:25:36 PM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\TAPS.mp3 2/23/2023 1:30:00 AM
+Assembly, 1338,2/22/2023 1:38:00 PM
+Begining Log File on 2/22/2023 1:53:57 PM
 Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/7/2023 11:58:46 PM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\TAPS.mp3 2/23/2023 1:30:00 AM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\Assembly.mp3 2/23/2023 1:53:58 PM
+Begining Log File on 2/22/2023 1:58:41 PM
 Creating events based on template: M/T/W/Th Academics
-Creating events based on template: Saturday: Blue
-New Day Loaded 2/8/2023 12:00:00 AM
-Begining Log File on 2/8/2023 11:58:30 AM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\TAPS.mp3 2/23/2023 1:30:00 AM
+Begining Log File on 2/22/2023 1:59:18 PM
 Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:00:16 PM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\TAPS.mp3 2/23/2023 1:30:00 AM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\Assembly.mp3 2/23/2023 1:59:19 PM
+Begining Log File on 2/22/2023 2:14:50 PM
 Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/7/2023 11:58:26 PM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\TAPS.mp3 2/23/2023 1:30:00 AM
+Begining Log File on 2/22/2023 2:16:57 PM
 Creating events based on template: M/T/W/Th Academics
-Creating events based on template: Saturday: Blue
-Begining Log File on 2/7/2023 11:58:25 AM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\TAPS.mp3 2/23/2023 1:30:00 AM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\file_example_MP3_700KB.mp3 2/23/2023 4:30:00 PM
+Begining Log File on 2/22/2023 2:25:07 PM
 Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/7/2023 12:00:33 PM
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\TAPS.mp3 2/23/2023 1:30:00 AM
+Begining Log File on 2/22/2023 2:25:34 PM
 Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/7/2023 11:58:26 PM
-Creating events based on template: M/T/W/Th Academics
-Creating events based on template: Sunday
-Begining Log File on 2/8/2023 12:02:23 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/7/2023 11:59:29 PM
-Creating events based on template: M/T/W/Th Academics
-Creating events based on template: Sunday
-Begining Log File on 2/8/2023 12:01:00 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 11:59:06 PM
-Creating events based on template: M/T/W/Th Academics
-Creating events based on template: Sunday
-Begining Log File on 2/7/2023 11:59:30 PM
-Creating events based on template: M/T/W/Th Academics
-Creating events based on template: Sunday
-New Day Loaded 2/8/2023 12:00:00 AM
-Begining Log File on 2/8/2023 12:21:06 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:21:40 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:21:49 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:22:13 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:25:39 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:27:57 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:28:15 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:28:23 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:28:38 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:28:53 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:30:09 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:30:27 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:30:56 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:31:53 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:32:42 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:33:32 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:35:49 AM
-Creating events based on template: M/T/W/Th Academics
-Begining Log File on 2/8/2023 12:40:54 AM
-Creating events based on template: M/T/W/Th Academics
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\TAPS.mp3 2/23/2023 1:30:00 AM
+Creating events based on template: None
+Creating events based on template: None
+Creating events based on template: None
+Creating events based on template: None
+Creating events based on template: None
+Creating events based on template: None
+Creating events based on template: None
+Creating events based on template: None
+Creating events based on template: Friday Academics
+Scheduling next day event for: C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\sounds\file_example_MP3_700KB.mp3 2/23/2023 1:15:00 AM
+Assembly, 1438,2/22/2023 2:38:00 PM ---DISABLED---
+Assembly, 1438,2/22/2023 2:38:00 PM
+Assembly, 1445,2/22/2023 2:45:00 PM ---DISABLED---
+Assembly, 1445,2/22/2023 2:45:00 PM

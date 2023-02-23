@@ -16,18 +16,21 @@ namespace CWOC_Audio_Scheduler
         public string path;
         public TimeOnly time;
         public bool disabled = false;
-
-        public ScheduleObject(string path, int hours, int minutes)
+        public bool nextDay = false;
+        public bool scheduled = false;
+        public ScheduleObject(string path, int hours, int minutes, bool nextDay = false)
         {
             this.path = path;
             TimeOnly timeOnly = new TimeOnly(hours, minutes);
             this.time = timeOnly;
+            this.nextDay = nextDay;
         }
 
-        public ScheduleObject(string path, TimeOnly time)
+        public ScheduleObject(string path, TimeOnly time, bool nextDay = false)
         {
             this.path = path;
             this.time = time;
+            this.nextDay = nextDay;
         }
 
 

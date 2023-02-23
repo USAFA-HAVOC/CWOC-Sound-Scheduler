@@ -60,9 +60,6 @@ class WorkBench
         weekDayAcademicTemplate.daysDefault[(int)DayOfWeek.Thursday] = true;
 
         //Temporarily Adding for weekend testing
-        weekDayAcademicTemplate.daysDefault[(int)DayOfWeek.Friday] = true;
-        weekDayAcademicTemplate.daysDefault[(int)DayOfWeek.Saturday] = true;
-        weekDayAcademicTemplate.daysDefault[(int)DayOfWeek.Sunday] = true;
 
         // Build Schedule of Calls
         weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "Reveille and To the Colors.mp3", 7, 00));
@@ -84,6 +81,7 @@ class WorkBench
         //ACQ and Taps
         weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "ACQ.mp3",  19, 15));
         weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "TAPS.mp3", 23, 00));
+        weekDayAcademicTemplate.scheduleObjects.Add(new ScheduleObject(soundPath + "TAPS.mp3", 01, 30, true));
 
         staticTemplates.Add(weekDayAcademicTemplate);
 

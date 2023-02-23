@@ -133,3 +133,8 @@ C:\Users\Kayleb\source\repos\Audio Scheduler Head\bin\Debug\net6.0-windows\sound
 C:\Users\Kayleb\source\repos\Audio Scheduler Head\bin\Debug\net6.0-windows\sounds\file_example_MP3_700KB.mp3
 C:\Users\Kayleb\source\repos\Audio Scheduler Head\bin\Debug\net6.0-windows\sounds\Reveille and To the Colors.mp3
 C:\Users\Kayleb\source\repos\Audio Scheduler Head\bin\Debug\net6.0-windows\sounds\TAPS.mp3
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\sounds\ACQ.mp3
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\sounds\Assembly.mp3
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\sounds\file_example_MP3_700KB.mp3
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\sounds\Reveille and To the Colors.mp3
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\sounds\TAPS.mp3

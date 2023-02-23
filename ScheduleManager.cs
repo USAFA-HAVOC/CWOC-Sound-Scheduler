@@ -37,7 +37,7 @@ namespace CWOC_Audio_Scheduler
         public void CreateNextDayEvents()
         {
             todaysExceptions = new List<ScheduleObject>();
-            backgroundWorkers = new List<WorkerPair>();
+            RefreshBackgroundWorkerList();
 
             DateOnly today = DateOnly.FromDateTime(DateTime.Now);
 
@@ -73,23 +73,20 @@ namespace CWOC_Audio_Scheduler
 
         private void CreateScheduleEvents(ScheduleTemplate template)
         {
-            todayTemplate = template;
+            this.todayTemplate = template;
             WriteToLog("Creating events based on template: " + template.name);
             for (int j = 0; j < template.scheduleObjects.Count; j++)
             {
                 TimeOnly eventTime = template.scheduleObjects[j].time;
-                if (eventTime.Hour == 0 && eventTime.Minute == 0)
+                BackgroundWorker worker = new();
+                worker.DoWork += new DoWorkEventHandler(WaitUntilEventTime);
+                worker.WorkerSupportsCancellation = true;
+                WorkerPair pair = new WorkerPair();
+                pair.worker = worker;
+                pair.scheduleObject = template.scheduleObjects[j];
+                backgroundWorkers.Add(pair);
+                if (worker != null)
                 {
-                    play_sound(template.scheduleObjects[j].path);
-                } else
-                {
-                    BackgroundWorker worker = new BackgroundWorker();
-                    worker.DoWork += new DoWorkEventHandler(WaitUntilEventTime);
-                    WorkerPair pair = new WorkerPair();
-                    pair.worker = worker;
-                    pair.scheduleObject = template.scheduleObjects[j];
-                    worker.WorkerSupportsCancellation = true;
-                    backgroundWorkers.Add(pair);
                     worker.RunWorkerAsync(pair);
                 }
             }
@@ -115,29 +112,16 @@ namespace CWOC_Audio_Scheduler
             templates.Add(template);
         }
 
-        public void killWorker(ScheduleObject scheduleObject)
-        {
-            for (int i = 0; i < backgroundWorkers.Count; i++)
-            {
-                ScheduleObject so = backgroundWorkers[i].scheduleObject;
-                BackgroundWorker worker = backgroundWorkers[i].worker;
-                if (so.time == scheduleObject.time && so.path == scheduleObject.path)
-                {
-                    worker.CancelAsync();
-                    so.disabled = true;
-                    WorkerPair newPair = new();
-                    newPair.scheduleObject = so;
-                    newPair.worker = worker;
-                    backgroundWorkers[i] = newPair;
-                }
-            }
-        }
-
         private void WaitUntilEventTime(object sender, DoWorkEventArgs args)
         {
             WorkerPair pair = (WorkerPair) args.Argument;
             ScheduleObject scheduleObject = pair.scheduleObject;
             TimeSpan sleepTime = scheduleObject.time.ToTimeSpan() - DateTime.Now.TimeOfDay;
+            if (pair.scheduleObject.nextDay)
+            {
+                sleepTime += new TimeSpan(days: 1, 0, 0, 0);
+                WriteToLog("Scheduling next day event for: " + scheduleObject.path + " " + DateTime.Now.Add(sleepTime));
+            }
             if (sleepTime.TotalMilliseconds > 0)
             {
                 Thread.Sleep(sleepTime);
@@ -152,23 +136,26 @@ namespace CWOC_Audio_Scheduler
             }
         }
 
-        public void CreateExceptionToday(string path, TimeOnly time)
+        public void CreateExceptionToday(ScheduleObject so)
         {
-            ScheduleObject scheduleObject = new();
-            scheduleObject.path = path;
-            scheduleObject.time = time; 
 
-            todaysExceptions.Add(scheduleObject);
+            todaysExceptions.Add(so);
 
             BackgroundWorker worker = new BackgroundWorker();
             worker.DoWork += new DoWorkEventHandler(WaitUntilEventTime);
             WorkerPair pair = new WorkerPair();
             worker.WorkerSupportsCancellation = true;
             pair.worker = worker;
-            pair.scheduleObject = scheduleObject;
+            pair.scheduleObject = so;
+
+            TimeSpan time = so.time.ToTimeSpan();
+            if (so.nextDay)
+            {
+                time = time.Add(new TimeSpan(days: 1, 0, 0, 0));
+            }
 
             int index = 0;
-            while (backgroundWorkers[index].scheduleObject.time < scheduleObject.time)
+            while (index < backgroundWorkers.Count() && backgroundWorkers[index].scheduleObject.time.ToTimeSpan() < time)
             {
                 index++;
             }
@@ -185,11 +172,40 @@ namespace CWOC_Audio_Scheduler
 
         public void CreateTemplateDayException(ScheduleTemplate template, DateOnly day)
         {
-            TemplateDayException exception = new TemplateDayException();
-            exception.template = template;
-            exception.date = day;
+            if (day == DateOnly.FromDateTime(DateTime.Now)) 
+            {
+                for (int i = 0; i < backgroundWorkers.Count; i++)
+                {
+                    killWorker(backgroundWorkers[i].scheduleObject);
+                }
+                CreateScheduleEvents(template);
 
-            templateDayExceptions.Add(exception);
+            } else
+            {
+                TemplateDayException exception = new TemplateDayException();
+                exception.template = template;
+                exception.date = day;
+
+                templateDayExceptions.Add(exception);
+            }
+        }
+
+        public void killWorker(ScheduleObject scheduleObject)
+        {
+            for (int i = 0; i < backgroundWorkers.Count; i++)
+            {
+                ScheduleObject so = backgroundWorkers[i].scheduleObject;
+                BackgroundWorker worker = backgroundWorkers[i].worker;
+                if (so.time == scheduleObject.time && so.path == scheduleObject.path)
+                {
+                    worker.CancelAsync();
+                    so.disabled = true;
+                    WorkerPair newPair = new();
+                    newPair.scheduleObject = so;
+                    newPair.worker = worker;
+                    backgroundWorkers[i] = newPair;
+                }
+            }
         }
 
         private void LoadNextDay(object sender, DoWorkEventArgs args)
@@ -249,6 +265,29 @@ namespace CWOC_Audio_Scheduler
                 }
             }
             return templates.Last();
+        }
+
+        public void RefreshBackgroundWorkerList()
+        {
+            List<WorkerPair> outList = new List<WorkerPair>();
+
+            for (int i = 0; i < backgroundWorkers.Count; i++)
+            {
+                if (backgroundWorkers[i].scheduleObject.nextDay)
+                {
+                    ScheduleObject newObj = backgroundWorkers[i].scheduleObject;
+                    newObj.nextDay = false;
+                    newObj.scheduled = true;
+                    BackgroundWorker newWorker = backgroundWorkers[i].worker;
+
+                    WorkerPair newPair = new WorkerPair();
+                    newPair.scheduleObject = newObj;
+                    newPair.worker = newWorker;
+
+                    outList.Add(newPair);
+                }
+            }
+            backgroundWorkers = outList;
         }
     }
 

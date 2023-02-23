@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using NAudio.Wave;
 using System.IO;
 using System.Media;
+using System.Globalization;
 
 namespace CWOC_Audio_Scheduler
 {
@@ -18,11 +19,13 @@ namespace CWOC_Audio_Scheduler
     {
         WaveOutEvent outputDevice = new WaveOutEvent();
         ScheduleManager manager;
+
         string path;
         public BasicFunctionForm()
         {
-            manager = new ScheduleManager(this);
             InitializeComponent();
+            manager = new ScheduleManager(this);
+            dtpTodayTime.ShowUpDown = true;
 
             WorkBench.BuildTemplates();
             InitTemplateCboBoxes();
@@ -51,6 +54,7 @@ namespace CWOC_Audio_Scheduler
             cboSoundsToday.Items.AddRange(sounds);
             updateTodayListBox();
             updateChangeDaySchedule();
+            updateTodayLabels();
         }
 
         private void InitTemplateCboBoxes()
@@ -71,7 +75,7 @@ namespace CWOC_Audio_Scheduler
         {
             if (lbxToday.Items.Count == 0)
             {
-                lblTodayNextSound.Text = "Tomorrow";
+                lblTodayNextSound.Text = "Unknown";
                 return;
             }
             TimeOnly now = TimeOnly.FromDateTime(DateTime.Now);
@@ -80,13 +84,14 @@ namespace CWOC_Audio_Scheduler
             for (int i = 0; i < lbxToday.Items.Count; i++)
             {
                 ScheduleObject item = (ScheduleObject) lbxToday.Items[i];
-                if (item.time.IsBetween(now, item.time))
+                if (item.time.IsBetween(now, nextSound.time))
                 {
                     nextSound = item;
                 }
             }
 
             lblTodayNextSound.Text = nextSound.ToString();
+            lblTodayDay.Text = DateTime.Now.ToString("MMMM d, yyyy");
         }
 
         private void buildUpdateListBox()
@@ -144,8 +149,9 @@ namespace CWOC_Audio_Scheduler
             if (cboSoundsToday.SelectedIndex != -1)
             {
                 string path = Path.Combine(this.path, cboSoundsToday.Text + ".mp3");
-                ScheduleObject so = new ScheduleObject(path, TimeOnly.Parse(dtpTodayTime.Text));
-                manager.CreateExceptionToday(path, TimeOnly.Parse(dtpTodayTime.Text));
+                TimeOnly time = TimeOnly.ParseExact(dtpTodayTime.Text, "HHmm");
+                ScheduleObject so = new ScheduleObject(path, time, chbNextDay.Checked);
+                manager.CreateExceptionToday(so);
                 updateTodayListBox();
                 updateTodayLabels();
             }
@@ -171,7 +177,7 @@ namespace CWOC_Audio_Scheduler
             int compare = day.CompareTo(today);
             cboChangeDayTemplates.SelectedItem = manager.GetTemplateForDay(day);
 
-            if (compare <= 0)
+            if (compare < 0)
             {
                 btnCreateTemplateDayException.Enabled = false;
             } else
