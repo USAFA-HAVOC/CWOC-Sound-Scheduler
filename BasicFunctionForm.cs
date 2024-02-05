@@ -19,26 +19,36 @@ namespace CWOC_Audio_Scheduler
     {
         WaveOutEvent outputDevice = new WaveOutEvent();
         ScheduleManager manager;
+        BackgroundWorker? repeatThread;
 
-        string path;
+        public static string sound_path = Path.Combine(Environment.CurrentDirectory, "sounds\\");
+        public static string template_path = Path.Combine(Environment.CurrentDirectory, "templates\\");
         public BasicFunctionForm()
         {
             InitializeComponent();
             manager = new ScheduleManager(this);
-            dtpTodayTime.ShowUpDown = true;
 
-            WorkBench.BuildTemplates();
-            InitTemplateCboBoxes();
+            //WorkBench.BuildTemplates();
+            PopulateTemplateCboBoxes(cboChangeDayTemplates);
             manager.CreateNextDayEvents();
-            path = Path.Combine(Environment.CurrentDirectory, "sounds");
-            path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, "sounds\\");
 
-            ScheduleTemplate[] templates = WorkBench.staticTemplates.ToArray();
+            //path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, "sounds\\");
+
+            List<ScheduleTemplate> templates = manager.templates;
+            PopulateSoundListBox(this.cboSounds);
+            PopulateSoundListBox(this.cboSoundsToday);
+            updateTodayListBox();
+            updateChangeDaySchedule();
+            updateTodayLabels();
+        }
+
+        public void PopulateSoundListBox(ComboBox cbo)
+        {
             string[] sounds = { };
-
+            cbo.Items.Clear();
             try
             {
-                sounds = Directory.GetFiles(path, "*.mp3*", SearchOption.AllDirectories);
+                sounds = Directory.GetFiles(sound_path, "*.mp3*", SearchOption.AllDirectories);
             }
             catch (Exception e)
             {
@@ -48,21 +58,29 @@ namespace CWOC_Audio_Scheduler
             for (int i = 0; i < sounds.Length; i++)
             {
                 sounds[i] = Path.GetFileNameWithoutExtension(sounds[i]);
-            }
+            } 
 
-            cboSounds.Items.AddRange(sounds);
-            cboSoundsToday.Items.AddRange(sounds);
-            updateTodayListBox();
-            updateChangeDaySchedule();
-            updateTodayLabels();
+            if (sounds.Length == 0)
+            {
+                cbo.Enabled = false;
+            } else
+            {
+                cbo.Enabled = true;
+                cbo.Items.AddRange(sounds);
+            }
         }
 
-        private void InitTemplateCboBoxes()
+        public void PopulateTemplateCboBoxes(ComboBox cbo)
         {
-            for (int i = 0; i < WorkBench.staticTemplates.Count; i++)
+            cbo.Items.Clear();
+            manager.templates.Clear();
+
+            string[] template_files = Directory.GetFiles(template_path, "*.template", SearchOption.AllDirectories);
+            for (int i = 0; i < template_files.Count(); i++)
             {
-                manager.templates.Add(WorkBench.staticTemplates[i]);
-                cboChangeDayTemplates.Items.Add(WorkBench.staticTemplates[i]);
+                ScheduleTemplate template = ScheduleTemplate.FromFile(template_files[i]);
+                manager.templates.Add(template);
+                cbo.Items.Add(template);
             }
         }
 
@@ -110,27 +128,14 @@ namespace CWOC_Audio_Scheduler
 
         private void play_now_btn_click(object sender, EventArgs e)
         {
-            if (cboSounds.SelectedIndex != -1)
+            if (cboSounds.SelectedIndex != -1 && !manager.isPlayingSound)
             {
-                play_sound(path + cboSounds.SelectedItem);
+                BackgroundWorker bgWorker = new BackgroundWorker();
+                bgWorker.WorkerSupportsCancellation = true;
+                this.repeatThread = bgWorker;
+                bgWorker.DoWork += new DoWorkEventHandler(manager.delegate_sound_playing);
+                bgWorker.RunWorkerAsync(sound_path + cboSounds.SelectedItem + ".mp3");
             }
-        }
-
-        /**
-         * Should be deleted in favor of schedule manager play_now function
-         */
-        private void play_sound(string path)
-        {
-            if (outputDevice != null)
-            {
-                outputDevice.Stop();
-            }
-
-            var audioFile = new Mp3FileReader(path + ".mp3");
-            outputDevice = new WaveOutEvent();
-            outputDevice.Init(audioFile);
-            outputDevice.Play();
-
         }
 
         private void btnTodayRemove_Click(object sender, EventArgs e)
@@ -146,14 +151,22 @@ namespace CWOC_Audio_Scheduler
 
         private void btnTodayAdd_Click(object sender, EventArgs e)
         {
-            if (cboSoundsToday.SelectedIndex != -1)
+
+            try
             {
-                string path = Path.Combine(this.path, cboSoundsToday.Text + ".mp3");
-                TimeOnly time = TimeOnly.ParseExact(dtpTodayTime.Text, "HHmm");
-                ScheduleObject so = new ScheduleObject(path, time, chbNextDay.Checked);
-                manager.CreateExceptionToday(so);
-                updateTodayListBox();
-                updateTodayLabels();
+                TimeOnly time = TimeOnly.ParseExact(txtTime.Text, "HHmm");
+                if (cboSoundsToday.SelectedIndex != -1)
+                {
+                    string path = Path.Combine(sound_path, cboSoundsToday.Text + ".mp3");
+                    ScheduleObject so = new ScheduleObject(path, time, chbNextDay.Checked);
+                    manager.CreateExceptionToday(so);
+                    updateTodayListBox();
+                    updateTodayLabels();
+                }
+            }
+            catch (Exception exception)
+            {
+                return;
             }
         }
 
@@ -184,6 +197,38 @@ namespace CWOC_Audio_Scheduler
             {
                 btnCreateTemplateDayException.Enabled = true;
             }
+        }
+
+        private void checkBoxMuted_CheckedChanged(object sender, EventArgs e)
+        {
+            manager.muted = checkBoxMuted.Checked;
+        }
+
+        private void stopRepeatButton_Click(object sender, EventArgs e)
+        {
+            manager.cancelRepeat = true;
+            manager.StopSound();
+        }
+        private void checkBoxRepeat_CheckedChanged(object sender, EventArgs e)
+        {
+            //btnStopRepeat.Enabled = checkBoxRepeat.Checked;
+        }
+
+        private void reloadFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PopulateSoundListBox(this.cboSounds);
+            PopulateSoundListBox(this.cboSoundsToday);
+        }
+
+        public void updateNowPLayingLabel(string fileName)
+        {
+            lblNowPlaying.Text = "Now Playing: " + fileName;
+        }
+
+        private void btnTemplateManager_Click(object sender, EventArgs e)
+        {
+            TemplateManager managerForm = new TemplateManager(this);
+            managerForm.Show();
         }
     }
 }

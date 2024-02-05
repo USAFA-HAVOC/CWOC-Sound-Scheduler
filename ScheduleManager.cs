@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Xsl;
@@ -22,8 +24,16 @@ namespace CWOC_Audio_Scheduler
         public BasicFunctionForm? parentForm = null;
         public ScheduleTemplate? todayTemplate;
 
+        private WaveOutEvent outputDevice = new WaveOutEvent();
+        public bool isPlayingSound { get
+            {
+                return outputDevice.PlaybackState.Equals(PlaybackState.Playing);
+            } }
+        public bool muted = false;
         string logFilePath = "logfile.txt";
         StreamWriter? streamWriter;
+
+        public bool cancelRepeat = false;
 
         public ScheduleManager(BasicFunctionForm? form=null)
         {
@@ -129,8 +139,8 @@ namespace CWOC_Audio_Scheduler
                 if (!((BackgroundWorker) sender).CancellationPending)
                 {
                     play_sound(scheduleObject.path);
-                    WriteToLog(pair.scheduleObject.ToString() + "," + DateTime.Now.ToString());
-                } else
+                }
+                else
                 {
                     WriteToLog(pair.scheduleObject.ToString() + "," + DateTime.Now.ToString() + " ---DISABLED---");
                 }
@@ -240,12 +250,63 @@ namespace CWOC_Audio_Scheduler
             WriteToLog("New Day Loaded " + DateTime.Now);
         }
 
-        private void play_sound(string path)
+        public void delegate_sound_playing(object sender, DoWorkEventArgs args)
         {
-            var audioFile = new Mp3FileReader(path);
-            var outputDevice = new WaveOutEvent();
-            outputDevice.Init(audioFile);
-            outputDevice.Play();
+            play_sound(args.Argument.ToString(), parentForm.checkBoxRepeat.Checked);
+        }
+
+        public void play_sound(string path, bool repeat = false)
+        {
+            if (muted)
+            {
+                WriteToLog(Path.GetFileName(path) + "," + DateTime.Now.ToString() + " ---MUTED---");
+
+            }
+            else
+            {
+                WriteToLog(Path.GetFileName(path) + "," + DateTime.Now.ToString());
+            }
+
+            if (!muted)
+            {
+                var audioFile = new Mp3FileReader(path);
+                this.outputDevice = new WaveOutEvent();
+
+                //PlayBackEventArgs args = new PlayBackEventArgs(audioFile);
+                //outputDevice.PlaybackStopped += new EventHandler<StoppedEventArgs>((repeatSound, args) => { });
+
+                parentForm.BeginInvoke((MethodInvoker)delegate {
+                    parentForm.updateNowPLayingLabel(Path.GetFileName(path));
+                });
+
+                outputDevice.Init(audioFile);
+                outputDevice.Play();
+
+
+                while(outputDevice.PlaybackState != PlaybackState.Stopped)
+                {
+                    Thread.Sleep(10);
+                }
+
+                parentForm.BeginInvoke((MethodInvoker)delegate {
+                    parentForm.updateNowPLayingLabel(Path.GetFileName("None"));
+                });
+
+                cancelRepeat = false;
+                while (repeat && parentForm.checkBoxRepeat.Checked)
+                {
+                    if (cancelRepeat)
+                    {
+                        outputDevice.Stop();
+                        break;
+                    } else if (outputDevice.PlaybackState == PlaybackState.Stopped)
+                    {
+                        audioFile.Seek(0, SeekOrigin.Begin);
+                        outputDevice.Play();
+                    }
+                }
+                cancelRepeat = false;
+            }
 
             if (parentForm != null && parentForm.InvokeRequired)
             {
@@ -255,10 +316,18 @@ namespace CWOC_Audio_Scheduler
             }
         }
 
+        public void StopSound()
+        {
+            if (outputDevice.PlaybackState == PlaybackState.Playing)
+            {
+                outputDevice.Stop();
+            }
+        }
+
         private void WriteToLog(string str)
         {
-            string logFileFullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), logFilePath);
-            logFileFullPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, logFilePath);
+            string logFileFullPath = Path.Combine(Environment.CurrentDirectory, logFilePath); //Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), logFilePath);
+            //logFileFullPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, logFilePath);
 
             if (!File.Exists(logFileFullPath))
             {
@@ -315,7 +384,6 @@ namespace CWOC_Audio_Scheduler
                     {
                         index++;
                     }
-                    MessageBox.Show(newObj.ToString() + " " + index);
                     outList.Insert(index, newPair);
                 }
             }
@@ -349,5 +417,15 @@ namespace CWOC_Audio_Scheduler
         }
         public BackgroundWorker worker;
         public ScheduleObject scheduleObject;
+    }
+}
+
+
+public class PlayBackEventArgs: EventArgs
+{
+    public string path;
+    public PlayBackEventArgs(string path)
+    {
+        this.path = path;
     }
 }

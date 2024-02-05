@@ -90,7 +90,6 @@ C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\
 C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\NAudio.WinMM.dll
 C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.AssemblyReference.cache
 C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\obj\Debug\net6.0-windows\CWOC_Audio_Scheduler.BasicFunctionForm.resources
-C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\obj\Debug\net6.0-windows\CWOC_Audio_Scheduler.FullFunctionForm.resources
 C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\obj\Debug\net6.0-windows\CWOC Audio Scheduler.csproj.GenerateResource.cache
 C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\obj\Debug\net6.0-windows\CWOC Audio Scheduler.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\obj\Debug\net6.0-windows\CWOC Audio Scheduler.AssemblyInfoInputs.cache
@@ -138,3 +137,11 @@ C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\
 C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\sounds\file_example_MP3_700KB.mp3
 C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\sounds\Reveille and To the Colors.mp3
 C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\sounds\TAPS.mp3
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\sounds\short-success-sound-glockenspiel-treasure-video-game-6346.mp3
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\obj\Debug\net6.0-windows\CWOC_Audio_Scheduler.TemplateManager.resources
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\templates\Friday Academics.template
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\templates\M_T_W_Th Academics.template
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\templates\None.template
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\templates\Saturday_ Blue.template
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\templates\Saturday_ Silver.template
+C:\Users\cadet_admin\source\repos\CWOC-Sound-Scheduler\bin\Debug\net6.0-windows\templates\Sunday.template

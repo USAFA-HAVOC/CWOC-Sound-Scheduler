@@ -27,26 +27,18 @@ namespace CWOC_Audio_Scheduler
      * 
      * Note: The air force song will always be played manually in CWOC
      */
-    internal class ScheduleTemplate
+    public class ScheduleTemplate
     {
-        [JsonInclude]
         public string name;
-        [JsonInclude]
         public List<ScheduleObject> scheduleObjects = new();
 
         // This stores whether or not this template should serve as a default template
         // for any day, as well as a day to start/ end.
-        [JsonInclude]
         public bool defaultTemplate;
-        [JsonInclude]
-        public DateOnly startDate; // A timespan object might do this better
-        [JsonInclude]
+        public DateOnly startDate;
         public DateOnly endDate;
 
-        // This serves as storage for which days to assume. This could be changed, currently
-        // just being abstracted as an array of seven booleans
-        // Sun, mon, ... sat, to be in line with DayOfTheWeek enum
-        [JsonInclude]
+        // This serves as storage for which days to assume
         public bool[] daysDefault = { false, false, false, false, false, false, false };
 
         public ScheduleTemplate()
@@ -91,35 +83,138 @@ namespace CWOC_Audio_Scheduler
             string outStr = name + "\n";
             for (int i = 0; i < scheduleObjects.Count; i++)
             {
-                outStr += scheduleObjects[i].ToString();
-                outStr += "\n";
+                outStr += scheduleObjects[i].ToDelimitedString(";");
+                outStr += "-";
             }
-            outStr += defaultTemplate.ToString();
+            outStr = outStr.TrimEnd('-');
             outStr += "\n";
-            outStr += String.Join("\n", daysDefault);
+            outStr += defaultTemplate ? "True" : "False";
+            outStr += "\n";
+            outStr += String.Join(";", daysDefault);
             if (defaultTemplate)
-                outStr += $"\n{startDate}\n{endDate}";
+                outStr += $"\n{startDate.ToString("MM/dd/yyyy")}\n{endDate.ToString("MM/dd/yyyy")}";
 
             return outStr;
         }
 
-        private void FromString(string templateString)
+        public static ScheduleTemplate FromOutputString(string s, string startUpPath)
         {
-            //Take the string and store its contents into the properties of the calling
-            // object. Should be exactly inverse to the toString function
+            s = s.Trim();
+            ScheduleTemplate newTemplate = new ScheduleTemplate();
+
+            string[] attributes = s.Split("\n");
+            newTemplate.name = attributes[0].Trim();
+
+
+            if (attributes[1].Trim() != "")
+            {
+                string[] scheduleObjs = attributes[1].Split("-");
+                foreach (string objectString in scheduleObjs)
+                {
+                    string[] fileObjAttributes = objectString.Split(";");
+                    string fileName = fileObjAttributes[0];
+                    string time = fileObjAttributes[1];
+                    ScheduleObject scheduleObject = new ScheduleObject();
+                    scheduleObject.time = TimeOnly.ParseExact(time, "HHmm");
+                    scheduleObject.path = fileName; //Path.Combine(startUpPath, fileName);
+                    newTemplate.scheduleObjects.Add(scheduleObject);
+                }
+            }
+            
+
+            newTemplate.defaultTemplate = attributes[2].Trim() == "True";
+
+            string[] defaultDaysTemplate = attributes[3].Split(";");
+
+            for (int i = 0; i < defaultDaysTemplate.Length; i++)
+            {
+                newTemplate.daysDefault[i] = defaultDaysTemplate[i].Trim() == "True";
+            }
+
+            newTemplate.startDate = DateOnly.ParseExact(attributes[4], "MM/dd/yyyy");
+            newTemplate.endDate = DateOnly.ParseExact(attributes[5], "MM/dd/yyyy");
+
+
+            return newTemplate;
+        }
+
+        public string ToCSVString()
+        {
+            string output = name + ',';
+            output += startDate.ToString() + ",";
+            output += endDate.ToString() + ",";
+            output += defaultTemplate;
+            output += ",";
+
+            foreach (bool day in daysDefault)
+            {
+                output += day + ",";
+            }
+
+
+            return output;
+        }
+
+        public static ScheduleTemplate FromFile(string filePath)
+        {
+            StreamReader fp = new StreamReader(filePath);
+            string fileText = fp.ReadToEnd();
+            fp.Close();
+
+            return FromOutputString(fileText.Trim(), "");
+
+        }
+
+        public string getFileName()
+        {
+            string fileName = this.name;
+            char[] invalid_chars = Path.GetInvalidFileNameChars();
+
+
+            foreach (char c in invalid_chars)
+            {
+                fileName = fileName.Replace(c, '_');
+            }
+
+            return fileName + ".template";
+        }
+
+        public void ToFile(string fileName)
+        {
+            StreamWriter streamWriter = new StreamWriter(Path.Combine(BasicFunctionForm.template_path, fileName));
+            streamWriter.Write(this.ToOutputString());
+            streamWriter.Close();
             return;
         }
 
-        public void ToFile(string path)
+        public void insertScheduleObject(ScheduleObject so)
         {
-            //Convert to string and save to file
-            string fileText = ScheduleTemplateSerializer.SerializeJson(this);
-            MessageBox.Show(fileText);
-            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name);
-            StreamWriter streamWriter = new StreamWriter(filePath);
-            streamWriter.Write(fileText);
-            streamWriter.Close();
-            return;
+            long ticks = 0;
+            int index = 0;
+            long soTicks = so.time.Ticks;
+            if (so.nextDay)
+            {
+                soTicks += TimeSpan.TicksPerDay;
+            }
+
+            while (index < this.scheduleObjects.Count() && ticks < soTicks)
+            {
+                ticks = scheduleObjects[index].time.Ticks;
+                if (scheduleObjects[index].nextDay)
+                {
+                    ticks += TimeSpan.TicksPerDay;
+                }
+
+                if (ticks > soTicks)
+                {
+                    scheduleObjects.Insert(index, so);
+                    return;
+                }
+
+                index++;
+            }
+            scheduleObjects.Add(so);
+
         }
 
         /**

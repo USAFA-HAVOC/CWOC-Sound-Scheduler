@@ -11,7 +11,7 @@ namespace CWOC_Audio_Scheduler
      * This stores a path to a file, and a specific time that the file will run.
      * Use of the TimeOnly type may be temporary.
      */
-    internal struct ScheduleObject
+    public struct ScheduleObject
     {
         public string path;
         public TimeOnly time;
@@ -33,7 +33,6 @@ namespace CWOC_Audio_Scheduler
             this.nextDay = nextDay;
         }
 
-
         public void ToggleDisabled()
         {
             this.disabled = !this.disabled;
@@ -45,6 +44,11 @@ namespace CWOC_Audio_Scheduler
             outStr += ", ";
             outStr += time.ToString("HHmm");
             return outStr;
+        }
+
+        public string ToDelimitedString(string Delim)
+        {
+            return Path.GetFileNameWithoutExtension(path) + Delim + time.ToString("HHmm");
         }
     }
 }
